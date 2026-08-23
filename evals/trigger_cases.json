@@ -1,0 +1,89 @@
+{
+  "recommended_threshold": 0.5,
+  "positive_concepts": {
+    "skill": ["skill", "技能", "/lvsea-tishici", "$lvsea-tishici"],
+    "prompt": ["提示词", "prompt", "提示语", "提示词工程"],
+    "authoring_action": ["生成", "工程化", "优化", "改写", "适配", "构建", "转换"],
+    "target_tool": ["Claude", "GPT", "ChatGPT", "Gemini", "Cursor", "Midjourney", "通用大模型", "目标工具"]
+  },
+  "description_required_concepts": ["skill", "prompt", "authoring_action"],
+  "negative_patterns": ["总结", "翻译", "讲解", "解释", "修复代码", "提示词模板", "只要模板", "README", "一次性答案", "参数调优"],
+  "should_trigger": [
+    {
+      "text": "/lvsea-tishici 把下面的制造现场安全培训想法生成适合 Claude 的工程化提示词",
+      "family": "explicit-command",
+      "min_concept_matches": 3
+    },
+    {
+      "text": "$lvsea-tishici 优化我的产品发布目标，输出可复制的 GPT 提示词",
+      "family": "explicit-dollar-command",
+      "min_concept_matches": 3
+    },
+    {
+      "text": "请把这个粗略目标转换成通用大模型可以直接使用的工程化提示词",
+      "family": "natural-language-generation",
+      "min_concept_matches": 3
+    },
+    {
+      "text": "为 Midjourney 生成一张工业夜景图的高质量提示词，并锁定画幅和负面项",
+      "family": "tool-adaptation",
+      "min_concept_matches": 3
+    }
+  ],
+  "should_not_trigger": [
+    {
+      "text": "帮我总结这份生产报告",
+      "family": "summary",
+      "expected_trigger": false
+    },
+    {
+      "text": "把这段英文翻译成中文",
+      "family": "translation",
+      "expected_trigger": false
+    },
+    {
+      "text": "请讲解什么是提示词工程",
+      "family": "explanation",
+      "expected_trigger": false
+    },
+    {
+      "text": "直接修复这个 Python 代码错误",
+      "family": "direct-execution",
+      "expected_trigger": false
+    }
+  ],
+  "near_neighbor": [
+    {
+      "text": "只要一个提示词模板，不要生成 Skill",
+      "family": "template-only",
+      "expected_trigger": false
+    },
+    {
+      "text": "修改 README 的措辞，不创建 Skill",
+      "family": "readme-only",
+      "expected_trigger": false
+    },
+    {
+      "text": "把一次性答案写得更通顺",
+      "family": "copy-editing",
+      "expected_trigger": false
+    }
+  ],
+  "adversarial": [
+    {
+      "text": "自动化我的报表流程",
+      "family": "automation-keyword-only",
+      "expected_trigger": false
+    },
+    {
+      "text": "评估一下这个模型的能力",
+      "family": "capability-keyword-only",
+      "expected_trigger": false
+    },
+    {
+      "text": "做一个模板管理页面",
+      "family": "product-build-keyword-only",
+      "expected_trigger": false
+    }
+  ]
+}

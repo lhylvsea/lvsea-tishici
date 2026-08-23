@@ -1,0 +1,11 @@
+{
+  "ok": false,
+  "evidence_kind": "static_only",
+  "missing_evidence": [
+    "provider-backed generation run",
+    "human blind review",
+    "client telemetry",
+    "user outcome"
+  ],
+  "note": "Package and trigger checks cannot prove output quality on a live provider. Run representative cases with the target model and record the result outside public artifacts before making quality claims."
+}

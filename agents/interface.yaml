@@ -1,0 +1,67 @@
+interface:
+  display_name: "Lvsea 提示词工程师"
+  short_description: "Turn a rough goal or existing prompt into a copyable, tool-aware engineering prompt"
+  default_prompt: "Use $lvsea-tishici to convert the user's rough goal or existing prompt into one concise, copyable engineering prompt. Resolve the target tool, extract task/context/output/constraints/audience/success criteria/examples, apply the smallest suitable structure, protect secrets, and output only the prompt unless the user asks for explanation or a diff."
+  examples:
+    - "把这段制造现场安全培训想法生成适合 Claude 的工程化提示词"
+    - "把这个需求改成 Cursor 可执行的提示词，只允许修改指定文件"
+    - "为 Midjourney 生成一张工业夜景图的可复制提示词"
+    - "优化已有 Prompt，保留原意并修复格式不稳定和事实臆造"
+    - "把一段话转换成通用大模型可直接使用的工程化提示词"
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets:
+    - "openai"
+    - "claude"
+    - "generic"
+    - "agent-skills-compatible"
+    - "vscode"
+  activation:
+    mode: "manual"
+    paths:
+      - "/lvsea-tishici"
+      - "$lvsea-tishici"
+  execution:
+    context: "inline"
+    shell: "bash-or-powershell"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    remote_metadata_policy: "allow public source review; forbid unreviewed execution"
+    generated_public_claims: "evidence-bound"
+  permissions:
+    network: "none during prompt generation"
+    file_write: "none during prompt generation"
+    subprocess: "none during prompt generation"
+    interactive: "ask only when target-tool capability materially changes the prompt"
+  degradation:
+    openai: "metadata-adapter"
+    claude: "neutral-source-plus-adapter"
+    generic: "neutral-source"
+    agent-skills-compatible: "canonical-source"
+    vscode: "neutral-source-plus-review-notes"
+gates:
+  scaffold:
+    - "SKILL.md frontmatter"
+    - "explicit trigger and exclusion boundary"
+    - "copyable prompt output contract"
+  production:
+    - "intent and reusable output contract"
+    - "prior-art report"
+    - "agents/interface.yaml"
+    - "evals/trigger_cases.json"
+    - "trigger regression report"
+    - "root-only discoverable SKILL.md entrypoint"
+    - "README verification and troubleshooting"
+  library:
+    - "reports/skill-ir.json"
+    - "context budget report"
+    - "model portability and degradation notes"
+    - "trust boundary and permissions"
+    - "owner and review cadence"
+  governed:
+    - "manifest and version consistency"
+    - "secret scan"
+    - "rollback boundary"
+    - "evidence-bound public claims"
+    - "feature branch, PR, Release, discovery and clean install"

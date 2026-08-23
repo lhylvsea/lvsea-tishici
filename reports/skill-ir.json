@@ -1,0 +1,167 @@
+{
+  "schema_version": "3.0.0-lvsea",
+  "generated_at": "2026-08-23",
+  "package": {
+    "name": "lvsea-tishici",
+    "version": "0.1.0",
+    "owner": "海洋哥 / lhylvsea",
+    "maturity_tier": "governed",
+    "lifecycle_stage": "library",
+    "upstream_inspiration": "https://github.com/nidhinjs/prompt-master; https://github.com/getsentry/skills/tree/main/skills/prompt-optimizer; https://github.com/joeseesun/qiaomu-meta-skill; https://github.com/yaojingang/yao-meta-skill"
+  },
+  "intent": {
+    "description": "在用户显式调用 /lvsea-tishici 或 $lvsea-tishici，或明确要求把一段话、一个粗略目标或已有提示词生成、优化、改写、迁移成可直接复制的工程化 AI 提示词时使用。支持通用大语言模型、Claude、ChatGPT/GPT、Gemini、推理模型、代码代理、图像/视频模型和工作流 AI；不用于直接执行提示词、普通问答、翻译、摘要、代码修复或只改 README。",
+    "job_to_be_done": "将一段粗略目标、需求或已有 Prompt 转化为可直接复制、平台适配、边界清晰、可验收的工程化 AI 提示词。",
+    "target_users": [
+      "中文 AI 工具使用者",
+      "制造企业管理者",
+      "内容与自动化工作者",
+      "代码代理使用者"
+    ],
+    "inputs": [
+      "rough goal",
+      "existing prompt",
+      "task context",
+      "target AI tool",
+      "constraints",
+      "examples"
+    ],
+    "outputs": [
+      "copyable Markdown prompt",
+      "optional clarification questions",
+      "optional explicit diff when requested"
+    ],
+    "exclusions": [
+      "direct task execution",
+      "ordinary Q&A",
+      "translation",
+      "summary",
+      "code fixing",
+      "unrequested prompt theory"
+    ]
+  },
+  "triggers": {
+    "should_trigger": [
+      "/lvsea-tishici 把下面的制造现场安全培训想法生成适合 Claude 的工程化提示词",
+      "$lvsea-tishici 优化我的产品发布目标，输出可复制的 GPT 提示词",
+      "请把这个粗略目标转换成通用大模型可以直接使用的工程化提示词",
+      "为 Midjourney 生成一张工业夜景图的高质量提示词，并锁定画幅和负面项"
+    ],
+    "should_not_trigger": [
+      "帮我总结这份生产报告",
+      "把这段英文翻译成中文",
+      "请讲解什么是提示词工程",
+      "直接修复这个 Python 代码错误"
+    ],
+    "near_neighbor": [
+      "只要一个提示词模板，不要生成 Skill",
+      "修改 README 的措辞，不创建 Skill",
+      "把一次性答案写得更通顺"
+    ],
+    "adversarial": [
+      "自动化我的报表流程",
+      "评估一下这个模型的能力",
+      "做一个模板管理页面"
+    ]
+  },
+  "workflow": {
+    "router_rules": [],
+    "core_workflow": [],
+    "modes_and_gates": [],
+    "output_contract": [],
+    "failure_modes": []
+  },
+  "resources": {
+    "references": [
+      "references/model-routing.md",
+      "references/output-contract.md",
+      "references/patterns.md",
+      "references/templates.md"
+    ],
+    "scripts": [
+      "scripts/context_sizer.py",
+      "scripts/export_skill_ir.py",
+      "scripts/publish_skill.py",
+      "scripts/release_check.py",
+      "scripts/runtime.py",
+      "scripts/trigger_eval.py",
+      "scripts/validate_skill.py"
+    ],
+    "evals": [
+      "evals/trigger_cases.json"
+    ],
+    "reports": [
+      "reports/creation-handoff.md",
+      "reports/output-evidence.json",
+      "reports/prior-art-research.md",
+      "reports/trigger-eval.json"
+    ],
+    "schemas": []
+  },
+  "risk": {
+    "output_risk": "medium",
+    "execution_risk": "low",
+    "trust_boundary": "prompt-generation-only",
+    "permissions": {
+      "network": "none at runtime; public source review and GitHub publication only in maintainer workflow",
+      "file_write": "none at runtime; package scripts write only reports when explicitly run",
+      "subprocess": "none at runtime; publication scripts require explicit invocation",
+      "secrets": "never include credentials in generated prompts or public artifacts"
+    }
+  },
+  "governance": {
+    "owner": "海洋哥 / lhylvsea",
+    "maturity": "governed",
+    "lifecycle_stage": "library",
+    "review_cadence": "quarterly",
+    "review_due": "2026-11-23",
+    "rollback_boundary": "feature branch and immutable semver release; local sync is recoverable"
+  },
+  "portability": {
+    "canonical_format": "agent-skills",
+    "adapter_targets": [
+      "openai",
+      "claude",
+      "generic",
+      "agent-skills-compatible",
+      "vscode"
+    ],
+    "activation": {
+      "mode": "manual",
+      "paths": [
+        "/lvsea-tishici",
+        "$lvsea-tishici"
+      ]
+    },
+    "execution": {
+      "context": "inline",
+      "shell": "bash-or-powershell"
+    },
+    "trust": {
+      "source_tier": "local",
+      "remote_inline_execution": "forbid",
+      "remote_metadata_policy": "allow public source review; forbid unreviewed execution",
+      "generated_public_claims": "evidence-bound"
+    },
+    "permissions": {
+      "network": "none during prompt generation",
+      "file_write": "none during prompt generation",
+      "subprocess": "none during prompt generation",
+      "interactive": "ask only when target-tool capability materially changes the prompt"
+    },
+    "degradation": {
+      "openai": "metadata-adapter",
+      "claude": "neutral-source-plus-adapter",
+      "generic": "neutral-source",
+      "agent-skills-compatible": "canonical-source",
+      "vscode": "neutral-source-plus-review-notes"
+    }
+  },
+  "evidence_boundary": {
+    "local_validation_is_evidence": true,
+    "trigger_fixture_is_evidence": true,
+    "provider_or_human_output_evidence": false,
+    "missing_external_or_human_evidence_label": "missing evidence",
+    "public_claim_policy": "claim only what named package, trigger, runtime, install, provider, or human evidence supports"
+  }
+}

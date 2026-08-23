@@ -1,0 +1,54 @@
+{
+  "name": "lvsea-tishici",
+  "version": "0.1.0",
+  "owner": "海洋哥 / lhylvsea",
+  "updated_at": "2026-08-23",
+  "review_due": "2026-11-23",
+  "status": "release-candidate",
+  "maturity_tier": "governed",
+  "lifecycle_stage": "library",
+  "context_budget_tier": "production",
+  "review_cadence": "quarterly",
+  "upstream_inspiration": "https://github.com/nidhinjs/prompt-master; https://github.com/getsentry/skills/tree/main/skills/prompt-optimizer; https://github.com/joeseesun/qiaomu-meta-skill; https://github.com/yaojingang/yao-meta-skill",
+  "upstream_sync": {
+    "prompt_master_reviewed_commit": "d15eabbe5d2122eedc060bae8a771381e9873d1b",
+    "prompt_master_reviewed_at": "2026-08-23",
+    "policy": "semantic adoption; keep attribution; do not mirror the upstream root entrypoint"
+  },
+  "intent": {
+    "job_to_be_done": "将一段粗略目标、需求或已有 Prompt 转化为可直接复制、平台适配、边界清晰、可验收的工程化 AI 提示词。",
+    "target_users": ["中文 AI 工具使用者", "制造企业管理者", "内容与自动化工作者", "代码代理使用者"],
+    "inputs": ["rough goal", "existing prompt", "task context", "target AI tool", "constraints", "examples"],
+    "outputs": ["copyable Markdown prompt", "optional clarification questions", "optional explicit diff when requested"],
+    "exclusions": ["direct task execution", "ordinary Q&A", "translation", "summary", "code fixing", "unrequested prompt theory"]
+  },
+  "risk": {
+    "output_risk": "medium",
+    "execution_risk": "low",
+    "trust_boundary": "prompt-generation-only"
+  },
+  "permissions": {
+    "network": "none at runtime; public source review and GitHub publication only in maintainer workflow",
+    "file_write": "none at runtime; package scripts write only reports when explicitly run",
+    "subprocess": "none at runtime; publication scripts require explicit invocation",
+    "secrets": "never include credentials in generated prompts or public artifacts"
+  },
+  "target_platforms": ["openai", "claude", "generic", "agent-skills-compatible", "vscode"],
+  "factory_components": ["references", "scripts", "evals", "reports", "tests"],
+  "release_gates": [
+    "intent_capture",
+    "prompt_master_source_review",
+    "keep_adapt_reject_invent_ledger",
+    "root_entrypoint_isolation",
+    "trigger_regression",
+    "context_budget",
+    "skill_ir",
+    "portability_and_trust",
+    "secret_scan",
+    "feature_branch_only_publication",
+    "pull_request_review_and_check_gate",
+    "released_version_immutability",
+    "github_release_creation",
+    "npx_discovery_and_clean_install"
+  ]
+}
