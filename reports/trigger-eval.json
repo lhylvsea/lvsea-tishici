@@ -1,0 +1,213 @@
+{
+  "ok": true,
+  "threshold": 0.5,
+  "description_concepts": [
+    "authoring_action",
+    "prompt",
+    "skill",
+    "target_tool"
+  ],
+  "missing_description_concepts": [],
+  "summary": {
+    "total": 14,
+    "passed": 14,
+    "false_positive": 0,
+    "false_negative": 0,
+    "pass_rate": 1.0
+  },
+  "bucket_summary": {
+    "should_trigger": {
+      "total": 4,
+      "passed": 4
+    },
+    "should_not_trigger": {
+      "total": 4,
+      "passed": 4
+    },
+    "near_neighbor": {
+      "total": 3,
+      "passed": 3
+    },
+    "adversarial": {
+      "total": 3,
+      "passed": 3
+    }
+  },
+  "failures": [],
+  "results": {
+    "should_trigger": [
+      {
+        "prompt": "/lvsea-tishici 把下面的制造现场安全培训想法生成适合 Claude 的工程化提示词",
+        "family": "explicit-command",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 1.0,
+        "matched_concepts": [
+          "authoring_action",
+          "prompt",
+          "skill",
+          "target_tool"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "$lvsea-tishici 优化我的产品发布目标，输出可复制的 GPT 提示词",
+        "family": "explicit-dollar-command",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 1.0,
+        "matched_concepts": [
+          "authoring_action",
+          "prompt",
+          "skill",
+          "target_tool"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "请把这个粗略目标转换成通用大模型可以直接使用的工程化提示词",
+        "family": "natural-language-generation",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 1.0,
+        "matched_concepts": [
+          "authoring_action",
+          "prompt",
+          "target_tool"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "为 Midjourney 生成一张工业夜景图的高质量提示词，并锁定画幅和负面项",
+        "family": "tool-adaptation",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 1.0,
+        "matched_concepts": [
+          "authoring_action",
+          "prompt",
+          "target_tool"
+        ],
+        "negative_pattern": null
+      }
+    ],
+    "should_not_trigger": [
+      {
+        "prompt": "帮我总结这份生产报告",
+        "family": "summary",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": "总结"
+      },
+      {
+        "prompt": "把这段英文翻译成中文",
+        "family": "translation",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": "翻译"
+      },
+      {
+        "prompt": "请讲解什么是提示词工程",
+        "family": "explanation",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.333,
+        "matched_concepts": [
+          "prompt"
+        ],
+        "negative_pattern": "讲解"
+      },
+      {
+        "prompt": "直接修复这个 Python 代码错误",
+        "family": "direct-execution",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null
+      }
+    ],
+    "near_neighbor": [
+      {
+        "prompt": "只要一个提示词模板，不要生成 Skill",
+        "family": "template-only",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 1.0,
+        "matched_concepts": [
+          "authoring_action",
+          "prompt",
+          "skill"
+        ],
+        "negative_pattern": "提示词模板"
+      },
+      {
+        "prompt": "修改 README 的措辞，不创建 Skill",
+        "family": "readme-only",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.333,
+        "matched_concepts": [
+          "skill"
+        ],
+        "negative_pattern": "README"
+      },
+      {
+        "prompt": "把一次性答案写得更通顺",
+        "family": "copy-editing",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": "一次性答案"
+      }
+    ],
+    "adversarial": [
+      {
+        "prompt": "自动化我的报表流程",
+        "family": "automation-keyword-only",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "评估一下这个模型的能力",
+        "family": "capability-keyword-only",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "做一个模板管理页面",
+        "family": "product-build-keyword-only",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,207 @@
+{
+  "ok": true,
+  "phase": "local",
+  "root": "lvsea-tishici",
+  "version": "0.1.0",
+  "repository": null,
+  "summary": {
+    "pass": 7,
+    "warn": 3,
+    "block": 0
+  },
+  "gates": [
+    {
+      "gate": "package_validation",
+      "status": "pass",
+      "evidence": {
+        "ok": true,
+        "root": "lvsea-tishici",
+        "failures": [],
+        "warnings": []
+      }
+    },
+    {
+      "gate": "context_budget",
+      "status": "pass",
+      "evidence": {
+        "ok": true,
+        "status": "pass",
+        "reason": "root SKILL.md is 5552 bytes within production budget",
+        "tier": "production",
+        "root_skill_bytes": 5552,
+        "root_budget_bytes": {
+          "root_warn": 14000,
+          "root_block": 20000
+        },
+        "resource_bytes": {
+          "references": 29718,
+          "scripts": 57351,
+          "evals": 2854,
+          "reports": 20738
+        },
+        "total_measured_bytes": 116213,
+        "files": [
+          {
+            "path": "references/model-routing.md",
+            "bytes": 3682,
+            "on_demand": true
+          },
+          {
+            "path": "references/output-contract.md",
+            "bytes": 2769,
+            "on_demand": true
+          },
+          {
+            "path": "references/patterns.md",
+            "bytes": 6165,
+            "on_demand": true
+          },
+          {
+            "path": "references/templates.md",
+            "bytes": 17102,
+            "on_demand": true
+          },
+          {
+            "path": "scripts/context_sizer.py",
+            "bytes": 3392,
+            "on_demand": false
+          },
+          {
+            "path": "scripts/export_skill_ir.py",
+            "bytes": 7790,
+            "on_demand": false
+          },
+          {
+            "path": "scripts/publish_skill.py",
+            "bytes": 17412,
+            "on_demand": false
+          },
+          {
+            "path": "scripts/release_check.py",
+            "bytes": 10403,
+            "on_demand": false
+          },
+          {
+            "path": "scripts/runtime.py",
+            "bytes": 1855,
+            "on_demand": false
+          },
+          {
+            "path": "scripts/trigger_eval.py",
+            "bytes": 6140,
+            "on_demand": false
+          },
+          {
+            "path": "scripts/validate_skill.py",
+            "bytes": 10359,
+            "on_demand": false
+          },
+          {
+            "path": "evals/trigger_cases.json",
+            "bytes": 2854,
+            "on_demand": false
+          },
+          {
+            "path": "reports/context-budget.json",
+            "bytes": 2319,
+            "on_demand": true
+          },
+          {
+            "path": "reports/creation-handoff.md",
+            "bytes": 2867,
+            "on_demand": true
+          },
+          {
+            "path": "reports/output-evidence.json",
+            "bytes": 401,
+            "on_demand": true
+          },
+          {
+            "path": "reports/prior-art-research.md",
+            "bytes": 3227,
+            "on_demand": true
+          },
+          {
+            "path": "reports/skill-ir.json",
+            "bytes": 6083,
+            "on_demand": true
+          },
+          {
+            "path": "reports/trigger-eval.json",
+            "bytes": 5841,
+            "on_demand": true
+          }
+        ],
+        "missing_evidence": "context size does not prove output quality or runtime performance"
+      }
+    },
+    {
+      "gate": "version_and_report_consistency",
+      "status": "pass",
+      "evidence": {
+        "ok": true,
+        "failures": [],
+        "manifest_name": "lvsea-tishici",
+        "manifest_version": "0.1.0"
+      }
+    },
+    {
+      "gate": "secret_scan",
+      "status": "pass",
+      "evidence": {
+        "findings": []
+      }
+    },
+    {
+      "gate": "git_diff_check",
+      "status": "pass",
+      "evidence": {
+        "ok": true,
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "gate": "feature_branch",
+      "status": "pass",
+      "evidence": {
+        "branch": "codex/build-lvsea-tishici-v0-1-0"
+      }
+    },
+    {
+      "gate": "clean_worktree",
+      "status": "warn",
+      "evidence": {
+        "dirty": true
+      }
+    },
+    {
+      "gate": "unit_tests",
+      "status": "pass",
+      "evidence": {
+        "ok": true,
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.009s\n\nOK"
+      }
+    },
+    {
+      "gate": "clean_install",
+      "status": "warn",
+      "evidence": {
+        "missing_evidence": "rerun with --install-check after the target revision is remote"
+      }
+    },
+    {
+      "gate": "provider_or_human_output_evidence",
+      "status": "warn",
+      "evidence": {
+        "path": "reports/output-evidence.json",
+        "evidence_kind": "static_only",
+        "ok": false,
+        "missing_evidence": "static fixtures/specifications do not prove provider or human output quality"
+      }
+    }
+  ]
+}
