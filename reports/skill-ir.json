@@ -1,16 +1,16 @@
 {
   "schema_version": "3.0.0-lvsea",
-  "generated_at": "2026-08-23",
+  "generated_at": "2026-09-16",
   "package": {
     "name": "lvsea-tishici",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "owner": "海洋哥 / lhylvsea",
     "maturity_tier": "governed",
     "lifecycle_stage": "library",
     "upstream_inspiration": "https://github.com/nidhinjs/prompt-master; https://github.com/getsentry/skills/tree/main/skills/prompt-optimizer; https://github.com/joeseesun/qiaomu-meta-skill; https://github.com/yaojingang/yao-meta-skill"
   },
   "intent": {
-    "description": "在用户显式调用 /lvsea-tishici 或 $lvsea-tishici，或明确要求把一段话、一个粗略目标或已有提示词生成、优化、改写、迁移成可直接复制的工程化 AI 提示词时使用。支持通用大语言模型、Claude、ChatGPT/GPT、Gemini、推理模型、代码代理、图像/视频模型和工作流 AI；不用于直接执行提示词、普通问答、翻译、摘要、代码修复或只改 README。",
+    "description": "中文提示词工程 Skill。仅在用户显式调用 /lvsea-tishici 或 $lvsea-tishici，或明确要求把一段话、粗略目标或已有提示词生成、优化、改写、迁移成可直接复制的工程化 AI 提示词时使用。支持通用大语言模型、Claude、ChatGPT/GPT、Gemini、推理模型、代码代理、图像/视频模型和工作流 AI；不用于直接执行提示词、普通问答、翻译、摘要、代码修复或只改 README。",
     "job_to_be_done": "将一段粗略目标、需求或已有 Prompt 转化为可直接复制、平台适配、边界清晰、可验收的工程化 AI 提示词。",
     "target_users": [
       "中文 AI 工具使用者",
@@ -91,9 +91,12 @@
       "evals/trigger_cases.json"
     ],
     "reports": [
+      "reports/context-budget.json",
       "reports/creation-handoff.md",
       "reports/output-evidence.json",
       "reports/prior-art-research.md",
+      "reports/release-local.json",
+      "reports/skill-ir.json",
       "reports/trigger-eval.json"
     ],
     "schemas": []
@@ -114,7 +117,7 @@
     "maturity": "governed",
     "lifecycle_stage": "library",
     "review_cadence": "quarterly",
-    "review_due": "2026-11-23",
+    "review_due": "2026-12-16",
     "rollback_boundary": "feature branch and immutable semver release; local sync is recoverable"
   },
   "portability": {

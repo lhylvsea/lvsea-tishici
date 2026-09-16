@@ -1,9 +1,9 @@
 {
   "name": "lvsea-tishici",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "owner": "海洋哥 / lhylvsea",
-  "updated_at": "2026-08-23",
-  "review_due": "2026-11-23",
+  "updated_at": "2026-09-16",
+  "review_due": "2026-12-16",
   "status": "release-candidate",
   "maturity_tier": "governed",
   "lifecycle_stage": "library",
@@ -11,8 +11,10 @@
   "review_cadence": "quarterly",
   "upstream_inspiration": "https://github.com/nidhinjs/prompt-master; https://github.com/getsentry/skills/tree/main/skills/prompt-optimizer; https://github.com/joeseesun/qiaomu-meta-skill; https://github.com/yaojingang/yao-meta-skill",
   "upstream_sync": {
-    "prompt_master_reviewed_commit": "d15eabbe5d2122eedc060bae8a771381e9873d1b",
-    "prompt_master_reviewed_at": "2026-08-23",
+    "prompt_master_reviewed_commit": "2bd92518e26bf659e21e3d9ab90573fcf3ddeccb",
+    "prompt_master_reviewed_version": "1.8.0",
+    "prompt_master_reviewed_at": "2026-09-16",
+    "change_scope": "selective reference synchronization; preserve the local root entrypoint, Chinese trigger boundary, output contract and governance layer",
     "policy": "semantic adoption; keep attribution; do not mirror the upstream root entrypoint"
   },
   "intent": {

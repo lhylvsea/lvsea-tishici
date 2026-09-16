@@ -11,3 +11,5 @@
 ## Evidence policy
 
 Public source review and local deterministic checks are recorded here and in `reports/`. No private prompt, credential, local absolute path or provider output is stored in the package.
+
+For this synchronization, Prompt Master `v1.8.0` was reviewed at commit `2bd92518e26bf659e21e3d9ab90573fcf3ddeccb` on 2026-09-16. Only the compatible reference guidance was adopted; the upstream root entrypoint was not mirrored.

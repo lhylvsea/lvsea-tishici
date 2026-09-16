@@ -23,6 +23,23 @@ class PackageContractTests(unittest.TestCase):
         for field in ("review_due", "review_cadence", "release_gates"):
             self.assertTrue(manifest.get(field))
 
+    def test_prompt_master_sync_preserves_safe_local_contract(self):
+        manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
+        sync = manifest["upstream_sync"]
+        self.assertEqual(sync["prompt_master_reviewed_version"], "1.8.0")
+        self.assertRegex(sync["prompt_master_reviewed_commit"], r"^[0-9a-f]{40}$")
+
+        templates = (ROOT / "references/templates.md").read_text(encoding="utf-8")
+        self.assertIn("Template E — Auditable Reasoning", templates)
+        self.assertIn("Template M — Current Claude Task Brief", templates)
+        self.assertNotIn("Template E — Chain of Thought", templates)
+        self.assertNotIn("Before answering, think through this carefully", templates)
+
+        patterns = (ROOT / "references/patterns.md").read_text(encoding="utf-8")
+        self.assertIn("No audit contract for logic task", patterns)
+        self.assertIn("Context rot on long sessions", patterns)
+        self.assertNotIn("/rewind", patterns)
+
     def test_only_root_discoverable_skill_entrypoint(self):
         entrypoints = sorted(
             path.relative_to(ROOT).as_posix()
@@ -33,6 +50,7 @@ class PackageContractTests(unittest.TestCase):
 
     def test_references_and_evaluation_fixtures_exist(self):
         for relative in (
+            "USAGE.zh-CN.md",
             "references/templates.md",
             "references/patterns.md",
             "references/model-routing.md",

@@ -2,7 +2,7 @@
 
 ## Research date and scope
 
-- Date: 2026-08-23
+- Date: 2026-09-16
 - Queries: `prompt engineering prompt generator`; `AI prompt optimizer skill`; `agent skill prompt generation`
 - Catalog result: 68 normalized candidate families; skills.sh and SkillsMP returned successfully for all three queries.
 - Metric boundary: installs, repository stars, recency and human quality are separate signals; no combined score was calculated.
@@ -12,11 +12,12 @@
 ### 1. Prompt Master
 
 - Source: https://github.com/nidhinjs/prompt-master
-- Reviewed revision: `d15eabbe5d2122eedc060bae8a771381e9873d1b` (`docs: update MiniMax routing to M3 as default`)
+- Reviewed revision: `2bd92518e26bf659e21e3d9ab90573fcf3ddeccb` (`feat: refresh Claude OpenAI and Grok routing`), Prompt Master `v1.8.0`
 - License: MIT; copyright notice retained in this package.
 - `keep`: target-tool routing, 9 intent dimensions, tool-specific templates, credit-killing pattern diagnosis, memory block, credential safety and agentic stop conditions.
 - `adapt`: English Claude-first natural activation becomes explicit Chinese `/lvsea-tishici` and `$lvsea-tishici`; visible strategy/token notes become a prompt-only output lock; generic tasks default to a platform-neutral model to honor the user's one-pass workflow.
 - `reject`: forced visible framework names, token estimates, unbounded prompt length and chain-of-thought instructions for reasoning-native models.
+- `sync`: replace the legacy chain-of-thought template with auditable reasoning; generalize the Claude task brief and agentic context-rot guidance; record the reviewed upstream commit and version in package metadata.
 - Destination: `references/templates.md`, `references/patterns.md`, `references/model-routing.md`, and the root runtime workflow.
 
 ### 2. Prompt Optimizer
