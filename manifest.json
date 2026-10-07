@@ -1,9 +1,9 @@
 {
   "name": "lvsea-tishici",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "owner": "海洋哥 / lhylvsea",
-  "updated_at": "2026-08-23",
-  "review_due": "2026-11-23",
+  "updated_at": "2026-10-07",
+  "review_due": "2027-01-07",
   "status": "release-candidate",
   "maturity_tier": "governed",
   "lifecycle_stage": "library",
@@ -19,7 +19,7 @@
     "job_to_be_done": "将一段粗略目标、需求或已有 Prompt 转化为可直接复制、平台适配、边界清晰、可验收的工程化 AI 提示词。",
     "target_users": ["中文 AI 工具使用者", "制造企业管理者", "内容与自动化工作者", "代码代理使用者"],
     "inputs": ["rough goal", "existing prompt", "task context", "target AI tool", "constraints", "examples"],
-    "outputs": ["copyable Markdown prompt", "optional clarification questions", "optional explicit diff when requested"],
+    "outputs": ["copyable Markdown prompt", "Lyra mode-specific clarification questions", "optional explicit diff when requested", "mode-specific change notes and usage guidance"],
     "exclusions": ["direct task execution", "ordinary Q&A", "translation", "summary", "code fixing", "unrequested prompt theory"]
   },
   "risk": {
@@ -34,7 +34,7 @@
     "secrets": "never include credentials in generated prompts or public artifacts"
   },
   "target_platforms": ["openai", "claude", "generic", "agent-skills-compatible", "vscode"],
-  "factory_components": ["references", "scripts", "evals", "reports", "tests"],
+  "factory_components": ["references", "references/lyra-method.md", "scripts", "evals", "reports", "tests"],
   "release_gates": [
     "intent_capture",
     "prompt_master_source_review",

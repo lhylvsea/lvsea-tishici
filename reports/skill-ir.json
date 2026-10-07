@@ -1,16 +1,16 @@
 {
   "schema_version": "3.0.0-lvsea",
-  "generated_at": "2026-08-23",
+  "generated_at": "2026-10-07",
   "package": {
     "name": "lvsea-tishici",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "owner": "海洋哥 / lhylvsea",
     "maturity_tier": "governed",
     "lifecycle_stage": "library",
     "upstream_inspiration": "https://github.com/nidhinjs/prompt-master; https://github.com/getsentry/skills/tree/main/skills/prompt-optimizer; https://github.com/joeseesun/qiaomu-meta-skill; https://github.com/yaojingang/yao-meta-skill"
   },
   "intent": {
-    "description": "在用户显式调用 /lvsea-tishici 或 $lvsea-tishici，或明确要求把一段话、一个粗略目标或已有提示词生成、优化、改写、迁移成可直接复制的工程化 AI 提示词时使用。支持通用大语言模型、Claude、ChatGPT/GPT、Gemini、推理模型、代码代理、图像/视频模型和工作流 AI；不用于直接执行提示词、普通问答、翻译、摘要、代码修复或只改 README。",
+    "description": "在用户显式调用 /lvsea-tishici 或 $lvsea-tishici，或明确要求把一段话、一个粗略目标或已有提示词生成、优化、改写、迁移成可直接复制的工程化 AI 提示词时使用。内置 Lyra“解构—诊断—开发—交付”超级顾问流程，支持详细/基础两种优化模式，以及通用大语言模型、Claude、ChatGPT/GPT、Gemini、推理模型、代码代理、图像/视频模型和工作流 AI；不用于直接执行提示词、普通问答、翻译、摘要、代码修复或只改 README。",
     "job_to_be_done": "将一段粗略目标、需求或已有 Prompt 转化为可直接复制、平台适配、边界清晰、可验收的工程化 AI 提示词。",
     "target_users": [
       "中文 AI 工具使用者",
@@ -28,8 +28,9 @@
     ],
     "outputs": [
       "copyable Markdown prompt",
-      "optional clarification questions",
-      "optional explicit diff when requested"
+      "Lyra mode-specific clarification questions",
+      "optional explicit diff when requested",
+      "mode-specific change notes and usage guidance"
     ],
     "exclusions": [
       "direct task execution",
@@ -45,12 +46,15 @@
       "/lvsea-tishici 把下面的制造现场安全培训想法生成适合 Claude 的工程化提示词",
       "$lvsea-tishici 优化我的产品发布目标，输出可复制的 GPT 提示词",
       "请把这个粗略目标转换成通用大模型可以直接使用的工程化提示词",
-      "为 Midjourney 生成一张工业夜景图的高质量提示词，并锁定画幅和负面项"
+      "为 Midjourney 生成一张工业夜景图的高质量提示词，并锁定画幅和负面项",
+      "详细，使用 ChatGPT — 把下面的研究目标优化成可执行的提示词，并先问我关键问题",
+      "基础，使用 Claude — 快速修正这段客服 Prompt，直接给我可复制版本"
     ],
     "should_not_trigger": [
       "帮我总结这份生产报告",
       "把这段英文翻译成中文",
       "请讲解什么是提示词工程",
+      "请用详细模式回答这个普通知识问题",
       "直接修复这个 Python 代码错误"
     ],
     "near_neighbor": [
@@ -73,6 +77,7 @@
   },
   "resources": {
     "references": [
+      "references/lyra-method.md",
       "references/model-routing.md",
       "references/output-contract.md",
       "references/patterns.md",
@@ -91,9 +96,12 @@
       "evals/trigger_cases.json"
     ],
     "reports": [
+      "reports/context-budget.json",
       "reports/creation-handoff.md",
       "reports/output-evidence.json",
       "reports/prior-art-research.md",
+      "reports/release-local.json",
+      "reports/skill-ir.json",
       "reports/trigger-eval.json"
     ],
     "schemas": []
@@ -114,7 +122,7 @@
     "maturity": "governed",
     "lifecycle_stage": "library",
     "review_cadence": "quarterly",
-    "review_due": "2026-11-23",
+    "review_due": "2027-01-07",
     "rollback_boundary": "feature branch and immutable semver release; local sync is recoverable"
   },
   "portability": {

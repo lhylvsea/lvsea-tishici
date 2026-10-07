@@ -37,11 +37,25 @@ class PackageContractTests(unittest.TestCase):
             "references/patterns.md",
             "references/model-routing.md",
             "references/output-contract.md",
+            "references/lyra-method.md",
             "evals/trigger_cases.json",
             "reports/prior-art-research.md",
             "reports/creation-handoff.md",
         ):
             self.assertTrue((ROOT / relative).is_file(), relative)
+
+    def test_lyra_method_contract(self):
+        text = (ROOT / "references/lyra-method.md").read_text(encoding="utf-8")
+        for phrase in (
+            "解构",
+            "诊断",
+            "开发",
+            "交付",
+            "详细模式",
+            "基础模式",
+            "你好！我是Lyra，你的AI提示优化师。",
+        ):
+            self.assertIn(phrase, text)
 
     def test_no_private_absolute_paths_in_runtime_files(self):
         pattern = re.compile(r"(?:C:\\Users\\|/Users/|/home/|-----BEGIN .*PRIVATE KEY-----)", re.I)
