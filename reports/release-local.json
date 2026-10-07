@@ -2,8 +2,8 @@
   "ok": true,
   "phase": "local",
   "root": "lvsea-tishici",
-  "version": "0.1.0",
-  "repository": null,
+  "version": "0.2.0",
+  "repository": "lhylvsea/lvsea-tishici",
   "summary": {
     "pass": 7,
     "warn": 3,
@@ -26,29 +26,34 @@
       "evidence": {
         "ok": true,
         "status": "pass",
-        "reason": "root SKILL.md is 5552 bytes within production budget",
+        "reason": "root SKILL.md is 7326 bytes within production budget",
         "tier": "production",
-        "root_skill_bytes": 5552,
+        "root_skill_bytes": 7326,
         "root_budget_bytes": {
           "root_warn": 14000,
           "root_block": 20000
         },
         "resource_bytes": {
-          "references": 29718,
-          "scripts": 57351,
-          "evals": 2854,
-          "reports": 20738
+          "references": 36848,
+          "scripts": 58682,
+          "evals": 3582,
+          "reports": 30167
         },
-        "total_measured_bytes": 116213,
+        "total_measured_bytes": 136605,
         "files": [
           {
+            "path": "references/lyra-method.md",
+            "bytes": 5639,
+            "on_demand": true
+          },
+          {
             "path": "references/model-routing.md",
-            "bytes": 3682,
+            "bytes": 4462,
             "on_demand": true
           },
           {
             "path": "references/output-contract.md",
-            "bytes": 2769,
+            "bytes": 3480,
             "on_demand": true
           },
           {
@@ -63,72 +68,77 @@
           },
           {
             "path": "scripts/context_sizer.py",
-            "bytes": 3392,
+            "bytes": 3484,
             "on_demand": false
           },
           {
             "path": "scripts/export_skill_ir.py",
-            "bytes": 7790,
+            "bytes": 7985,
             "on_demand": false
           },
           {
             "path": "scripts/publish_skill.py",
-            "bytes": 17412,
+            "bytes": 17776,
             "on_demand": false
           },
           {
             "path": "scripts/release_check.py",
-            "bytes": 10403,
+            "bytes": 10615,
             "on_demand": false
           },
           {
             "path": "scripts/runtime.py",
-            "bytes": 1855,
+            "bytes": 1917,
             "on_demand": false
           },
           {
             "path": "scripts/trigger_eval.py",
-            "bytes": 6140,
+            "bytes": 6301,
             "on_demand": false
           },
           {
             "path": "scripts/validate_skill.py",
-            "bytes": 10359,
+            "bytes": 10604,
             "on_demand": false
           },
           {
             "path": "evals/trigger_cases.json",
-            "bytes": 2854,
+            "bytes": 3582,
             "on_demand": false
           },
           {
             "path": "reports/context-budget.json",
-            "bytes": 2319,
+            "bytes": 2640,
             "on_demand": true
           },
           {
             "path": "reports/creation-handoff.md",
-            "bytes": 2867,
+            "bytes": 3631,
             "on_demand": true
           },
           {
             "path": "reports/output-evidence.json",
-            "bytes": 401,
+            "bytes": 411,
             "on_demand": true
           },
           {
             "path": "reports/prior-art-research.md",
-            "bytes": 3227,
+            "bytes": 4098,
+            "on_demand": true
+          },
+          {
+            "path": "reports/release-local.json",
+            "bytes": 5571,
             "on_demand": true
           },
           {
             "path": "reports/skill-ir.json",
-            "bytes": 6083,
+            "bytes": 6681,
             "on_demand": true
           },
           {
             "path": "reports/trigger-eval.json",
-            "bytes": 5841,
+            "bytes": 7135,
             "on_demand": true
           }
         ],
@@ -142,7 +152,7 @@
         "ok": true,
         "failures": [],
         "manifest_name": "lvsea-tishici",
-        "manifest_version": "0.1.0"
+        "manifest_version": "0.2.0"
       }
     },
     {
@@ -166,7 +176,7 @@
       "gate": "feature_branch",
       "status": "pass",
       "evidence": {
-        "branch": "codex/build-lvsea-tishici-v0-1-0"
+        "branch": "codex/lyra-prompt-optimizer-v0-2-0"
       }
     },
     {
@@ -183,7 +193,7 @@
         "ok": true,
         "returncode": 0,
         "stdout": "",
-        "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.009s\n\nOK"
+        "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.005s\n\nOK"
       }
     },
     {

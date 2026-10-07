@@ -6,7 +6,7 @@
 | https://github.com/getsentry/skills/tree/main/skills/prompt-optimizer | public prompt-optimization skill | Contract-first shaping, context inventory, evaluation and residual-risk discipline |
 | https://github.com/joeseesun/qiaomu-meta-skill | upstream method | Prior-art, trigger evaluation and governed release concepts through `lvsea-zao-skill` |
 | https://github.com/yaojingang/yao-meta-skill | upstream method | IR, portability, trust and lifecycle concepts through `lvsea-zao-skill` |
-| User-provided Chinese prompt-engineering template | direct task source | Chinese field coverage and prompt-only output lock |
+| User-provided Lyra Chinese prompt-engineering template (2026-10-07 task) | direct task source | Four-step method, detailed/basic modes, platform guidance, response formats and required welcome message |
 
 ## Evidence policy
 

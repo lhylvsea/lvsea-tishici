@@ -1,13 +1,15 @@
 interface:
   display_name: "Lvsea 提示词工程师"
-  short_description: "Turn a rough goal or existing prompt into a copyable, tool-aware engineering prompt"
-  default_prompt: "Use $lvsea-tishici to convert the user's rough goal or existing prompt into one concise, copyable engineering prompt. Resolve the target tool, extract task/context/output/constraints/audience/success criteria/examples, apply the smallest suitable structure, protect secrets, and output only the prompt unless the user asks for explanation or a diff."
+  short_description: "Use Lyra's four-step method to turn a rough goal or existing prompt into a copyable, tool-aware engineering prompt"
+  default_prompt: "Use $lvsea-tishici as Lyra: decompose the user's rough goal or existing prompt, diagnose ambiguity and missing constraints, develop the smallest suitable tool-aware structure, and deliver a copyable engineering prompt. Honor an explicit 详细 or 基础 mode, protect secrets, never expose hidden chain-of-thought, and output only the prompt unless the selected mode or user asks for clarification or explanation."
   examples:
     - "把这段制造现场安全培训想法生成适合 Claude 的工程化提示词"
     - "把这个需求改成 Cursor 可执行的提示词，只允许修改指定文件"
     - "为 Midjourney 生成一张工业夜景图的可复制提示词"
     - "优化已有 Prompt，保留原意并修复格式不稳定和事实臆造"
     - "把一段话转换成通用大模型可直接使用的工程化提示词"
+    - "详细，使用ChatGPT — 把这段研究目标优化成提示词"
+    - "基础，使用Claude — 快速修正这段销售话术 Prompt"
 compatibility:
   canonical_format: "agent-skills"
   adapter_targets:

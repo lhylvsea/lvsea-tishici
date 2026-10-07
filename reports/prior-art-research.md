@@ -41,3 +41,11 @@ The package uses a short Chinese runtime entrypoint and moves large lookup table
 ## Evidence limits
 
 Static trigger and package checks do not prove provider output quality, human preference or business effectiveness. `reports/output-evidence.json` intentionally records this as `missing evidence` until a real provider run and human review are performed.
+
+## Lyra integration record
+
+- Input: user-provided Chinese “Lyra / 超级顾问提示” on 2026-10-07; no external repository or private source was added.
+- Keep: four-step decomposition/diagnosis/development/delivery method, detailed/basic modes, platform hints, simple/complex response layouts and exact activation welcome.
+- Adapt: “chain of thought” becomes internal reasoning checks; existing prompt-only output remains the default when no Lyra mode is selected; clarification questions are bounded to 2–3 only when material.
+- Reject: exposing hidden reasoning, treating framework names as quality evidence, inventing missing platform facts or overriding existing permission and source boundaries.
+- Destination: `references/lyra-method.md`, root routing, interface metadata, README and trigger fixtures.
