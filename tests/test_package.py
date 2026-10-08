@@ -40,6 +40,30 @@ class PackageContractTests(unittest.TestCase):
         self.assertIn("Context rot on long sessions", patterns)
         self.assertNotIn("/rewind", patterns)
 
+    def test_prompt_library_and_scene_routes_preserve_local_boundaries(self):
+        manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
+        sources = {item["name"]: item for item in manifest["additional_sources"]}
+        self.assertRegex(sources["Luban-Labs/pp"]["reviewed_commit"], r"^[0-9a-f]{40}$")
+        self.assertRegex(sources["wangmian0/prompt-opt"]["reviewed_commit"], r"^[0-9a-f]{40}$")
+
+        skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("提示词库", skill)
+        self.assertIn("prompt-opt-routing.md", skill)
+        self.assertIn("不扫描本机收藏目录", skill)
+        self.assertIn("不执行", skill)
+
+        library = (ROOT / "references/prompt-library-routing.md").read_text(encoding="utf-8")
+        self.assertIn("1–3", library)
+        self.assertIn("正文事实源", library)
+        self.assertIn("不复制", library)
+        self.assertIn("/pp", library)
+
+        routing = (ROOT / "references/prompt-opt-routing.md").read_text(encoding="utf-8")
+        for scene in ("排障 / 修 bug", "加功能", "重构", "调研 / 研究", "代码审查", "数据报告", "循环任务"):
+            self.assertIn(scene, routing)
+        self.assertIn("不超过 3 行", routing)
+        self.assertIn("prompt-level", routing)
+
     def test_only_root_discoverable_skill_entrypoint(self):
         entrypoints = sorted(
             path.relative_to(ROOT).as_posix()
@@ -55,6 +79,8 @@ class PackageContractTests(unittest.TestCase):
             "references/patterns.md",
             "references/model-routing.md",
             "references/output-contract.md",
+            "references/prompt-library-routing.md",
+            "references/prompt-opt-routing.md",
             "evals/trigger_cases.json",
             "reports/prior-art-research.md",
             "reports/creation-handoff.md",

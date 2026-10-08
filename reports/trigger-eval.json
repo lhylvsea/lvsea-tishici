@@ -4,29 +4,30 @@
   "description_concepts": [
     "authoring_action",
     "prompt",
+    "prompt_library",
     "skill",
     "target_tool"
   ],
   "missing_description_concepts": [],
   "summary": {
-    "total": 14,
-    "passed": 14,
+    "total": 17,
+    "passed": 17,
     "false_positive": 0,
     "false_negative": 0,
     "pass_rate": 1.0
   },
   "bucket_summary": {
     "should_trigger": {
-      "total": 4,
-      "passed": 4
+      "total": 6,
+      "passed": 6
     },
     "should_not_trigger": {
       "total": 4,
       "passed": 4
     },
     "near_neighbor": {
-      "total": 3,
-      "passed": 3
+      "total": 4,
+      "passed": 4
     },
     "adversarial": {
       "total": 3,
@@ -83,6 +84,34 @@
       {
         "prompt": "为 Midjourney 生成一张工业夜景图的高质量提示词，并锁定画幅和负面项",
         "family": "tool-adaptation",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 1.0,
+        "matched_concepts": [
+          "authoring_action",
+          "prompt",
+          "target_tool"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "$lvsea-tishici 从提示词库挑 1–3 个适合代码审查的模板，输出可复制 Prompt，不要执行",
+        "family": "prompt-library-routing",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 1.0,
+        "matched_concepts": [
+          "prompt",
+          "prompt_library",
+          "skill"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "请把这个登录接口时不时超时的草稿优化成适合 Cursor 的排障场景正式 Prompt",
+        "family": "scene-optimization",
         "expected_trigger": true,
         "predicted_trigger": true,
         "passed": true,
@@ -175,6 +204,20 @@
         "score": 0.0,
         "matched_concepts": [],
         "negative_pattern": "一次性答案"
+      },
+      {
+        "prompt": "只看提示词库菜单，不生成 Prompt",
+        "family": "library-menu-only",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 1.0,
+        "matched_concepts": [
+          "authoring_action",
+          "prompt",
+          "prompt_library"
+        ],
+        "negative_pattern": "只看提示词库"
       }
     ],
     "adversarial": [

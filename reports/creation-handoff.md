@@ -3,7 +3,7 @@
 ## Result
 
 - skill: `lvsea-tishici`
-- version: `0.1.0`
+- version: `0.2.0`
 - owner: `海洋哥 / lhylvsea`
 - one-line job: 把粗略目标或已有 Prompt 变成可复制、可适配、可验收的工程化提示词。
 - local path: `outputs/lvsea-tishici`
@@ -15,6 +15,8 @@
 - `https://github.com/getsentry/skills/tree/main/skills/prompt-optimizer` — contract-first prompt optimization, context inventory, eval and residual-risk discipline.
 - `https://github.com/joeseesun/qiaomu-meta-skill` — prior-art and governed skill publication patterns used by `lvsea-zao-skill`.
 - `https://github.com/yaojingang/yao-meta-skill` — IR, portability and lifecycle patterns used by `lvsea-zao-skill`.
+- `https://github.com/Luban-Labs/pp` — manual Prompt-library indexing and source-of-truth body routing; plugin and third-party Prompt bodies excluded.
+- `https://github.com/wangmian0/prompt-opt` — seven-scene routing, explicit assumptions and prompt-plus-change-list optimization; passive hooks and plugin packaging excluded.
 
 ## Absorbed and rejected
 
@@ -22,6 +24,8 @@
 - adapt: English natural activation → Chinese explicit command and trigger description; user prompt-only output → model-aware routing with a platform-neutral default; large upstream runtime → concise root entrypoint plus references.
 - reject: visible framework names, token counting in user output, fabricated certainty, unbounded autonomy and chain-of-thought requests for reasoning-native models.
 - invent: Chinese output contract; explicit `/lvsea-tishici` and `$lvsea-tishici` activation; governed package metadata; trigger families; local generic validator; maintainer publication and Codex install handoff.
+- keep/adapt: `pp` manual 1–3 candidate Prompt-library routing and `prompt-opt` seven-scene draft optimization, both mapped into the existing Prompt-only runtime.
+- reject: third-party `/pp`, `prompt-level` hooks, installers, local collection scanning and direct execution.
 
 ## Advantages and evidence
 
@@ -39,3 +43,4 @@
 - output/provider evidence: `missing evidence` by design until a real model run and human review
 - deliberately excluded: runtime network, file writes, subprocess execution and credential handling
 - publication evidence: to be added after the feature branch, PR, Release, discovery and clean-install gates complete
+- source evidence: public repositories reviewed at pinned commits; external Prompt bodies and provider output remain `missing evidence`

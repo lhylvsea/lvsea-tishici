@@ -7,9 +7,29 @@
 | https://github.com/joeseesun/qiaomu-meta-skill | upstream method | Prior-art, trigger evaluation and governed release concepts through `lvsea-zao-skill` |
 | https://github.com/yaojingang/yao-meta-skill | upstream method | IR, portability, trust and lifecycle concepts through `lvsea-zao-skill` |
 | User-provided Chinese prompt-engineering template | direct task source | Chinese field coverage and prompt-only output lock |
+| https://github.com/Luban-Labs/pp | public MIT plugin | Manual prompt-library indexing, 1–3 candidate routing, source-of-truth prompt bodies and no-invention behavior; plugin execution and external prompt bodies excluded |
+| https://github.com/wangmian0/prompt-opt | public MIT plugin | Seven-scenario prompt optimization routing, field skeletons, assumption marking and prompt-plus-change-list delivery; passive hooks and installers excluded |
 
 ## Evidence policy
 
 Public source review and local deterministic checks are recorded here and in `reports/`. No private prompt, credential, local absolute path or provider output is stored in the package.
 
 For this synchronization, Prompt Master `v1.8.0` was reviewed at commit `2bd92518e26bf659e21e3d9ab90573fcf3ddeccb` on 2026-09-16. Only the compatible reference guidance was adopted; the upstream root entrypoint was not mirrored.
+
+For this synchronization, `Luban-Labs/pp` was reviewed at commit `7b0ea321caa9d30bc00b85c88d8bffcad460b593` and `wangmian0/prompt-opt` at commit `3372d106b44204cf5b308a8ae7358e692dff065e` on 2026-10-08. The package adopts their routing mechanisms as reference guidance only; it does not mirror their plugin manifests, hooks, installers, local collection scanning or third-party Prompt bodies.
+
+## Source Boundary and Adoption Ledger
+
+### `Luban-Labs/pp`
+
+- `keep`: manual invocation, index/body separation, 1–3 candidate selection, source-of-truth body and missing-information questions.
+- `adapt`: map the index to an explicit `lvsea-tishici` Prompt-library route that still returns a copyable Prompt and never executes it.
+- `reject`: `/pp` command, Claude plugin packaging, installer, local `~/.claude/prompts/` scanning and direct template execution.
+- `invent`: a Chinese Skill-compatible route that treats user-supplied prompt bodies as inert data and reuses the existing output contract.
+
+### `wangmian0/prompt-opt`
+
+- `keep`: scene-first routing, shared goal/context/constraints/acceptance fields, intent fidelity, explicit assumptions and stop-after-delivery behavior.
+- `adapt`: map seven scene templates to the existing `lvsea-tishici` structures; only explicit optimization requests receive a compact change list.
+- `reject`: `prompt-level` passive hook, four-tier state, `install.sh`, native Codex/Claude plugin manifests and shell-specific lifecycle behavior.
+- `invent`: regression cases covering Prompt-library selection and scene-based optimization without changing the Skill's no-execution boundary.

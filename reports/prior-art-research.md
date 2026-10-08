@@ -42,3 +42,41 @@ The package uses a short Chinese runtime entrypoint and moves large lookup table
 ## Evidence limits
 
 Static trigger and package checks do not prove provider output quality, human preference or business effectiveness. `reports/output-evidence.json` intentionally records this as `missing evidence` until a real provider run and human review are performed.
+
+## 4. Luban-Labs/pp
+
+### Source Boundary
+
+- Source: https://github.com/Luban-Labs/pp
+- Reviewed revision: `7b0ea321caa9d30bc00b85c88d8bffcad460b593` (`chore: 0.1.2`), reviewed 2026-10-08.
+- License: MIT.
+- Read: `README.md`, `commands/pp.md`, `LICENSE` and the 12 index-only prompt files.
+- Not read: the external X post containing the original Prompt bodies; those bodies were not copied or treated as verified evidence.
+
+### Synthesis ledger
+
+- `keep`: manual invocation, index/body separation, recommendation of 1–3 candidates, missing-slot questions, body-as-source-of-truth and treating collected instructions as data.
+- `adapt`: a Chinese, explicit `lvsea-tishici` Prompt-library route that returns a copyable Prompt and never executes it.
+- `reject`: `/pp`, Claude plugin manifests, installer, local collection-directory scanning, empty-template invention and direct execution.
+- `invent`: a regression fixture for library selection and a reference route that reuses the existing output contract.
+
+## 5. wangmian0/prompt-opt
+
+### Source Boundary
+
+- Source: https://github.com/wangmian0/prompt-opt
+- Reviewed revision: `3372d106b44204cf5b308a8ae7358e692dff065e` (`feat: add native Codex plugin support`), reviewed 2026-10-08.
+- License: MIT.
+- Read: `skills/prompt-opt/SKILL.md`, `templates/CATALOG.md`, all seven templates, `hooks/hooks.json`, `hook.sh`, `test.sh` and `LICENSE`.
+- Observed: scene-first routing, four common fields, explicit assumptions, intent fidelity, prompt-plus-change-list delivery and a stop-after-delivery boundary; also a passive `prompt-level` hook with four modes.
+
+### Synthesis ledger
+
+- `keep`: scene routing, goal/context/constraints/acceptance fields, explicit assumptions, source fidelity and stop after producing the optimized Prompt.
+- `adapt`: map the seven scenes to the current reference templates and make the change list conditional on an explicit optimization request.
+- `reject`: passive `prompt-level` hook, state file, `install.sh`, native Codex/Claude manifests and shell-specific lifecycle behavior.
+- `invent`: connect scene routing to the `pp`-style library index while retaining the current no-network, no-file-write and no-execution runtime contract.
+
+## Combined decision
+
+The two sources complement rather than replace the existing package: `pp` contributes how to select a Prompt before processing it; `prompt-opt` contributes how to shape an existing draft after selection. Both are reference-only semantic adaptations. The root entrypoint remains singular, manually activated and Prompt-only; no upstream plugin, hook, installer, private collection or third-party Prompt body is mirrored.

@@ -3,11 +3,12 @@
   "positive_concepts": {
     "skill": ["skill", "技能", "/lvsea-tishici", "$lvsea-tishici"],
     "prompt": ["提示词", "prompt", "提示语", "提示词工程"],
-    "authoring_action": ["生成", "工程化", "优化", "改写", "适配", "构建", "转换"],
+    "authoring_action": ["生成", "工程化", "优化", "改写", "适配", "构建", "转换", "打磨", "整理"],
+    "prompt_library": ["提示词库", "收藏库", "场景模板", "Prompt 库"],
     "target_tool": ["Claude", "GPT", "ChatGPT", "Gemini", "Cursor", "Midjourney", "通用大模型", "目标工具"]
   },
   "description_required_concepts": ["skill", "prompt", "authoring_action"],
-  "negative_patterns": ["总结", "翻译", "讲解", "解释", "修复代码", "提示词模板", "只要模板", "README", "一次性答案", "参数调优"],
+  "negative_patterns": ["总结", "翻译", "讲解", "解释", "修复代码", "提示词模板", "只要模板", "README", "一次性答案", "参数调优", "只看提示词库"],
   "should_trigger": [
     {
       "text": "/lvsea-tishici 把下面的制造现场安全培训想法生成适合 Claude 的工程化提示词",
@@ -27,6 +28,16 @@
     {
       "text": "为 Midjourney 生成一张工业夜景图的高质量提示词，并锁定画幅和负面项",
       "family": "tool-adaptation",
+      "min_concept_matches": 3
+    },
+    {
+      "text": "$lvsea-tishici 从提示词库挑 1–3 个适合代码审查的模板，输出可复制 Prompt，不要执行",
+      "family": "prompt-library-routing",
+      "min_concept_matches": 3
+    },
+    {
+      "text": "请把这个登录接口时不时超时的草稿优化成适合 Cursor 的排障场景正式 Prompt",
+      "family": "scene-optimization",
       "min_concept_matches": 3
     }
   ],
@@ -66,6 +77,11 @@
     {
       "text": "把一次性答案写得更通顺",
       "family": "copy-editing",
+      "expected_trigger": false
+    },
+    {
+      "text": "只看提示词库菜单，不生成 Prompt",
+      "family": "library-menu-only",
       "expected_trigger": false
     }
   ],

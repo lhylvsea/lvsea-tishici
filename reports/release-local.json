@@ -1,8 +1,8 @@
 {
   "ok": true,
   "phase": "local",
-  "root": "lvsea-tishici-sync",
-  "version": "0.1.1",
+  "root": "lvsea-tishici-pp-sync",
+  "version": "0.2.0",
   "repository": "lhylvsea/lvsea-tishici",
   "summary": {
     "pass": 7,
@@ -15,7 +15,7 @@
       "status": "pass",
       "evidence": {
         "ok": true,
-        "root": "lvsea-tishici-sync",
+        "root": "lvsea-tishici-pp-sync",
         "failures": [],
         "warnings": []
       }
@@ -26,39 +26,49 @@
       "evidence": {
         "ok": true,
         "status": "pass",
-        "reason": "root SKILL.md is 5631 bytes within production budget",
+        "reason": "root SKILL.md is 7290 bytes within production budget",
         "tier": "production",
-        "root_skill_bytes": 5631,
+        "root_skill_bytes": 7290,
         "root_budget_bytes": {
           "root_warn": 14000,
           "root_block": 20000
         },
         "resource_bytes": {
-          "references": 30203,
+          "references": 40078,
           "scripts": 58682,
-          "evals": 2942,
-          "reports": 27650
+          "evals": 3639,
+          "reports": 34091
         },
-        "total_measured_bytes": 125108,
+        "total_measured_bytes": 143780,
         "files": [
           {
             "path": "references/model-routing.md",
-            "bytes": 4253,
+            "bytes": 4262,
             "on_demand": true
           },
           {
             "path": "references/output-contract.md",
-            "bytes": 2815,
+            "bytes": 3471,
             "on_demand": true
           },
           {
             "path": "references/patterns.md",
-            "bytes": 6192,
+            "bytes": 6196,
+            "on_demand": true
+          },
+          {
+            "path": "references/prompt-library-routing.md",
+            "bytes": 4833,
+            "on_demand": true
+          },
+          {
+            "path": "references/prompt-opt-routing.md",
+            "bytes": 4327,
             "on_demand": true
           },
           {
             "path": "references/templates.md",
-            "bytes": 16943,
+            "bytes": 16989,
             "on_demand": true
           },
           {
@@ -98,17 +108,17 @@
           },
           {
             "path": "evals/trigger_cases.json",
-            "bytes": 2942,
+            "bytes": 3639,
             "on_demand": false
           },
           {
             "path": "reports/context-budget.json",
-            "bytes": 2534,
+            "bytes": 2764,
             "on_demand": true
           },
           {
             "path": "reports/creation-handoff.md",
-            "bytes": 2907,
+            "bytes": 3654,
             "on_demand": true
           },
           {
@@ -118,22 +128,22 @@
           },
           {
             "path": "reports/prior-art-research.md",
-            "bytes": 3504,
+            "bytes": 6203,
             "on_demand": true
           },
           {
             "path": "reports/release-local.json",
-            "bytes": 6236,
+            "bytes": 6338,
             "on_demand": true
           },
           {
             "path": "reports/skill-ir.json",
-            "bytes": 6217,
+            "bytes": 7521,
             "on_demand": true
           },
           {
             "path": "reports/trigger-eval.json",
-            "bytes": 5841,
+            "bytes": 7200,
             "on_demand": true
           }
         ],
@@ -147,7 +157,7 @@
         "ok": true,
         "failures": [],
         "manifest_name": "lvsea-tishici",
-        "manifest_version": "0.1.1"
+        "manifest_version": "0.2.0"
       }
     },
     {
@@ -164,7 +174,7 @@
         "ok": true,
         "returncode": 0,
         "stdout": "",
-        "stderr": "warning: in the working copy of 'SKILL.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'SOURCES.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'manifest.json', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'references/model-routing.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'references/patterns.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'references/templates.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'reports/prior-art-research.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'tests/test_package.py', LF will be replaced by CRLF the next time Git touches it"
+        "stderr": ""
       }
     },
     {
@@ -188,7 +198,7 @@
         "ok": true,
         "returncode": 0,
         "stdout": "",
-        "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.007s\n\nOK"
+        "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.008s\n\nOK"
       }
     },
     {
