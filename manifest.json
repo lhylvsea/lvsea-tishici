@@ -1,6 +1,6 @@
 {
   "name": "lvsea-tishici",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "owner": "海洋哥 / lhylvsea",
   "updated_at": "2026-10-08",
   "review_due": "2027-01-08",
@@ -70,7 +70,8 @@
     "secrets": "never include credentials in generated prompts or public artifacts"
   },
   "target_platforms": ["openai", "claude", "generic", "agent-skills-compatible", "vscode"],
-  "factory_components": ["references", "references/lyra-method.md", "references/video-prompt-routing.md", "scripts", "evals", "reports", "tests"],
+  "factory_components": ["references", "references/lyra-method.md", "references/video-prompt-routing.md", "references/web-prompt-routing.md", "scripts", "evals", "reports", "tests"],
+  "local_preference_overlays": ["$CODEX_HOME/HTML/海洋哥web偏好提示词.md"],
   "release_gates": [
     "intent_capture",
     "prompt_master_source_review",

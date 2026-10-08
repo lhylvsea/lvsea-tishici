@@ -1,6 +1,6 @@
 ---
 name: lvsea-tishici
-description: "中文提示词工程与提示词库路由 Skill。仅在用户显式调用 /lvsea-tishici 或 $lvsea-tishici，或明确要求把一段话、粗略目标、已有提示词、提示词库条目、收藏模板或场景草稿生成、优化、改写、迁移成可直接复制的工程化 AI 提示词时使用。内置 Lyra“解构—诊断—开发—交付”超级顾问流程，支持详细/基础两种优化模式、提示词库索引路由和七类场景化 Prompt 优化，以及通用大语言模型、Claude、ChatGPT/GPT、Gemini、推理模型、代码代理、图像/视频模型和工作流 AI；视频生成提示词会联合补充 Seedance 的 seedance-prompt 与真实感 realistic-video-prompting 规则，并默认执行动作、道具状态、设备缺陷、时间钉点、主体尺度和物理因果预算，稳定优先而非瑕疵堆叠；不用于直接执行提示词、普通问答、翻译、摘要、代码修复、切换 prompt-level 档位、扫描本机收藏目录或只改 README。"
+description: "中文提示词工程与提示词库路由 Skill。仅在用户显式调用 /lvsea-tishici 或 $lvsea-tishici，或明确要求把粗略目标、已有 Prompt、提示词库条目或场景草稿生成、优化、改写、迁移成可复制的工程化 AI 提示词时使用。内置 Lyra“解构—诊断—开发—交付”，支持详细/基础模式、提示词库路由、七类场景，以及 Claude/GPT/Cursor/Midjourney/通用大模型、代码代理、图像/视频模型和工作流 AI；视频提示词联合 Seedance 的 seedance-prompt 与真实感 realistic-video-prompting，并采用稳定性预算；显式调用含 Web/web/HTML/html/网页/网站信号时进入 Web/HTML 路由；不用于直接执行提示词、普通问答、翻译、摘要、代码修复、切换 prompt-level 档位、扫描本机收藏目录或只改 README。"
 ---
 
 # lvsea-tishici
@@ -16,6 +16,7 @@ description: "中文提示词工程与提示词库路由 Skill。仅在用户显
 - 用户希望把 Prompt 适配到另一个 AI 工具、模型家族或代理环境；
 - 用户显式要求从提示词库、收藏库或场景模板中选择、整理或改写一条 Prompt，并要求输出可复制成品。
 - 用户显式要求生成视频提示词，或出现 Seedance、T2V、I2V、V2V、R2V、镜头、运镜、真实感、手机随拍、DV、VHS、纪录片等视频信号；此时进入 `references/video-prompt-routing.md`，在本 Skill 的输出边界内联合参考 `seedance-prompt` 与 `realistic-video-prompting`。
+- 用户显式调用 `/lvsea-tishici` 或 `$lvsea-tishici` 且同时出现 `web`、`html`、`网页` 或 `网站` 任一信号；此时进入 `references/web-prompt-routing.md`，叠加 Web/HTML 偏好。
 
 用户可以用以下前缀选择 Lyra 模式：
 
@@ -89,3 +90,4 @@ Prompt 必须独立、可复制、可粘贴。除非目标工具需要特定语�
 - `references/prompt-library-routing.md`：`pp` 风格的手动索引路由、正文事实源和收藏模板边界。
 - `references/lyra-method.md`：Lyra 四步法、模式选择、平台适配、响应模板和必需欢迎消息。
 - `references/video-prompt-routing.md`：视频任务联合参考 `seedance-prompt` 与 `realistic-video-prompting` 的触发条件、调用顺序、冲突优先级、时间结构和 Prompt-only 交付规则。
+- `references/web-prompt-routing.md`：Web/HTML 条件分支，综合本地 Web 偏好、源码与运行真源、数据边界、响应式交互、安全和浏览器验收规则。

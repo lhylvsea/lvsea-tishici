@@ -3,7 +3,7 @@
 ## Result
 
 - skill: `lvsea-tishici`
-- version: `0.3.2`
+- version: `0.3.3`
 - owner: `海洋哥 / lhylvsea`
 - one-line job: 用 Lyra 的“解构—诊断—开发—交付”流程，把粗略目标或已有 Prompt 变成可复制、可适配、可验收的工程化提示词。
 - local path: `outputs/lvsea-tishici`
@@ -34,6 +34,7 @@
 - invent: Chinese output contract; explicit `/lvsea-tishici` and `$lvsea-tishici` activation; governed package metadata; trigger families; local generic validator; maintainer publication and Codex install handoff; Lyra activation welcome, mode parser, four-step runtime layer and mode-specific response contract.
 - local revision 0.3.1: added stability-first budgets for prop state, visible actions, camera path, device artifacts, and physical/time continuity after review of a 15-second beach-video Prompt.
 - local revision 0.3.2: bound deliberate device events to timeline stages, added subject-scale and off-camera guardian rules, made one simple prop optional rather than default, and added a compliant fallback for photorealistic child-content restrictions.
+- local revision 0.3.3: added the conditional Web/HTML route; explicit `/lvsea-tishici` or `$lvsea-tishici` plus `web`/`html`/`网页`/`网站` now loads source-of-truth, formal-data, runtime, responsive, persistence, security and browser-acceptance preferences, with an optional read-only local overlay.
 - keep/adapt: `pp` manual 1–3 candidate Prompt-library routing and `prompt-opt` seven-scene draft optimization, both mapped into the existing Prompt-only runtime.
 - reject: third-party `/pp`, `prompt-level` hooks, installers, local collection scanning and direct execution.
 

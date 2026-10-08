@@ -120,6 +120,19 @@ python scripts/publish_skill.py . --github-user lhylvsea --repo-name lvsea-tishi
 - [joeseesun/qiaomu-meta-skill](https://github.com/joeseesun/qiaomu-meta-skill) 与 [yaojingang/yao-meta-skill](https://github.com/yaojingang/yao-meta-skill)：`lvsea-zao-skill` 的上游方法来源。
 - 维护者提供的 Lyra 中文提示词材料：四步方法、详细/基础模式、平台适配、响应格式和固定欢迎消息；已按本 Skill 的安全与平台边界适配，不是外部代码镜像。
 
+## Web/HTML 条件分支
+
+显式调用 `/lvsea-tishici` 或 `$lvsea-tishici` 时，如果同一请求出现 `web`、`html`、`网页` 或 `网站`，会在既有 Lyra 和提示词工程规则上叠加 `references/web-prompt-routing.md`。该分支优先要求目标 Agent 锁定源码真源、正式数据和运行实例，并补齐响应式 UI、持久化、权限、备份、缓存、浏览器渲染和分层验收；输出仍是 Prompt-only，不执行网页任务。
+
+本地若可读，可选加载 `$CODEX_HOME/HTML/海洋哥web偏好提示词.md` 作为只读个人偏好层。它不覆盖当前项目现场，不会把临时地址、端口、凭据或私人路径带入公开 Prompt；没有该文件时使用包内 Web 基线。
+
+Web 示例：
+
+- `$lvsea-tishici 为本地网页管理系统生成提示词，先锁定源码真源、正式数据和响应式验收`
+- `/lvsea-tishici 把单文件 HTML 仪表盘改成手机和桌面都能操作的 Prompt`
+- `$lvsea-tishici 修复本地 Web 系统的正式数据持久化提示词，加入备份、审计和未知值不等于零`
+- `/lvsea-tishici 为网站部署验收生成提示词，区分 file://、HTTP、缓存、后端重启和真实浏览器证据`
+
 ## License
 
 MIT。上游 Prompt Master 的版权与许可说明见 [LICENSE](LICENSE)，本包的整合与新增内容见 [NOTICE.md](NOTICE.md)。

@@ -2,7 +2,7 @@
   "ok": true,
   "phase": "local",
   "root": "lvsea-tishici-sync",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "repository": "lhylvsea/lvsea-tishici",
   "summary": {
     "pass": 7,
@@ -26,20 +26,20 @@
       "evidence": {
         "ok": true,
         "status": "pass",
-        "reason": "root SKILL.md is 13771 bytes within production budget",
+        "reason": "root SKILL.md is 13995 bytes within production budget",
         "tier": "production",
-        "root_skill_bytes": 13771,
+        "root_skill_bytes": 13995,
         "root_budget_bytes": {
           "root_warn": 14000,
           "root_block": 20000
         },
         "resource_bytes": {
-          "references": 58744,
+          "references": 64642,
           "scripts": 58682,
-          "evals": 4693,
-          "reports": 49430
+          "evals": 5139,
+          "reports": 43437
         },
-        "total_measured_bytes": 185320,
+        "total_measured_bytes": 185895,
         "files": [
           {
             "path": "references/lyra-method.md",
@@ -82,6 +82,11 @@
             "on_demand": true
           },
           {
+            "path": "references/web-prompt-routing.md",
+            "bytes": 5898,
+            "on_demand": true
+          },
+          {
             "path": "scripts/context_sizer.py",
             "bytes": 3484,
             "on_demand": false
@@ -118,17 +123,17 @@
           },
           {
             "path": "evals/trigger_cases.json",
-            "bytes": 4693,
+            "bytes": 5139,
             "on_demand": false
           },
           {
             "path": "reports/context-budget.json",
-            "bytes": 2989,
+            "bytes": 3101,
             "on_demand": true
           },
           {
             "path": "reports/creation-handoff.md",
-            "bytes": 6180,
+            "bytes": 6486,
             "on_demand": true
           },
           {
@@ -143,17 +148,17 @@
           },
           {
             "path": "reports/release-local.json",
-            "bytes": 13543,
+            "bytes": 6166,
             "on_demand": true
           },
           {
             "path": "reports/skill-ir.json",
-            "bytes": 8570,
+            "bytes": 8655,
             "on_demand": true
           },
           {
             "path": "reports/trigger-eval.json",
-            "bytes": 9049,
+            "bytes": 9930,
             "on_demand": true
           }
         ],
@@ -167,7 +172,7 @@
         "ok": true,
         "failures": [],
         "manifest_name": "lvsea-tishici",
-        "manifest_version": "0.3.2"
+        "manifest_version": "0.3.3"
       }
     },
     {
@@ -184,7 +189,7 @@
         "ok": true,
         "returncode": 0,
         "stdout": "",
-        "stderr": "warning: in the working copy of 'references/prompt-library-routing.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'references/prompt-opt-routing.md', LF will be replaced by CRLF the next time Git touches it"
+        "stderr": ""
       }
     },
     {
@@ -208,7 +213,7 @@
         "ok": true,
         "returncode": 0,
         "stdout": "",
-        "stderr": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.014s\n\nOK"
+        "stderr": "...........\n----------------------------------------------------------------------\nRan 11 tests in 0.022s\n\nOK"
       }
     },
     {

@@ -83,6 +83,7 @@ class PackageContractTests(unittest.TestCase):
             "references/prompt-opt-routing.md",
             "references/lyra-method.md",
             "references/video-prompt-routing.md",
+            "references/web-prompt-routing.md",
             "evals/trigger_cases.json",
             "reports/prior-art-research.md",
             "reports/creation-handoff.md",
@@ -130,6 +131,26 @@ class PackageContractTests(unittest.TestCase):
         ):
             self.assertIn(phrase, route)
         self.assertIn("stability-first budgets", interface)
+
+    def test_web_html_preference_route(self):
+        skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+        usage = (ROOT / "USAGE.zh-CN.md").read_text(encoding="utf-8")
+        route = (ROOT / "references/web-prompt-routing.md").read_text(encoding="utf-8")
+        interface = (ROOT / "agents/interface.yaml").read_text(encoding="utf-8")
+        for phrase in ("Web/HTML", "web", "HTML", "网页", "网站"):
+            self.assertIn(phrase, skill)
+        for phrase in (
+            "$CODEX_HOME/HTML/海洋哥web偏好提示词.md",
+            "源码真源",
+            "正式数据",
+            "响应式",
+            "静态",
+            "浏览器",
+            "不执行 Prompt",
+        ):
+            self.assertIn(phrase, route)
+        self.assertIn("Web/HTML", usage)
+        self.assertIn("Web/HTML", interface)
 
     def test_lyra_method_contract(self):
         text = (ROOT / "references/lyra-method.md").read_text(encoding="utf-8")
