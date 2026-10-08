@@ -6,9 +6,11 @@
     "authoring_action": ["生成", "工程化", "优化", "改写", "适配", "构建", "转换", "打磨", "整理"],
     "prompt_library": ["提示词库", "收藏库", "场景模板", "Prompt 库"],
     "target_tool": ["Claude", "GPT", "ChatGPT", "Gemini", "Cursor", "Midjourney", "通用大模型", "目标工具"],
-    "lyra_mode": ["Lyra", "详细", "基础", "超级顾问", "提示优化师"]
+    "lyra_mode": ["Lyra", "详细", "基础", "超级顾问", "提示优化师"],
+    "video_prompt": ["视频提示词", "视频", "Seedance", "T2V", "I2V", "V2V", "R2V", "手机随拍", "DV", "纪录片", "真实感"],
+    "web_prompt": ["web", "html", "网页", "网站"]
   },
-  "description_required_concepts": ["skill", "prompt", "authoring_action"],
+  "description_required_concepts": ["skill", "prompt", "authoring_action", "video_prompt"],
   "negative_patterns": ["总结", "翻译", "讲解", "解释", "修复代码", "提示词模板", "只要模板", "README", "一次性答案", "参数调优", "只看提示词库"],
   "should_trigger": [
     {
@@ -50,6 +52,16 @@
       "text": "基础，使用 Claude — 快速修正这段客服 Prompt，直接给我可复制版本",
       "family": "lyra-basic-mode",
       "min_concept_matches": 3
+    },
+    {
+      "text": "$lvsea-tishici 使用 Seedance 生成一段 15 秒海滩视频提示词，加入真实手机随拍感、镜头、现场声音和人物一致性",
+      "family": "video-seedance-realism-route",
+      "min_concept_matches": 4
+    },
+    {
+      "text": "$lvsea-tishici 为本地网页管理系统生成一个可直接交给代码代理的提示词，先锁定源码真源、正式数据和响应式验收",
+      "family": "web-html-routing",
+      "min_concept_matches": 4
     }
   ],
   "should_not_trigger": [
@@ -115,6 +127,11 @@
     {
       "text": "做一个模板管理页面",
       "family": "product-build-keyword-only",
+      "expected_trigger": false
+    },
+    {
+      "text": "帮我做一个网页管理页面",
+      "family": "web-keyword-only",
       "expected_trigger": false
     }
   ]

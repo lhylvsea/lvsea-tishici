@@ -1,6 +1,6 @@
 {
   "name": "lvsea-tishici",
-  "version": "0.2.0",
+  "version": "0.3.3",
   "owner": "海洋哥 / lhylvsea",
   "updated_at": "2026-10-08",
   "review_due": "2027-01-08",
@@ -33,6 +33,22 @@
       "reviewed_at": "2026-10-08",
       "license": "MIT",
       "adoption": "adapt seven-scene routing, intent fidelity, explicit assumptions, field skeletons and prompt-plus-change-list delivery; reject passive prompt-level hooks, installers and native plugin manifests"
+    },
+    {
+      "name": "Emily2040/seedance-2.0",
+      "repository": "https://github.com/Emily2040/seedance-2.0",
+      "reviewed_commit": "4668457e560eee06e95d7fcfdf441c8c0bba802e",
+      "reviewed_at": "2026-10-08",
+      "license": "MIT",
+      "adoption": "adapt Seedance 2.0 mode selection, Director's Read, reference roles, shot order, continuous-versus-storyboard structure and anti-slop checks; keep the external root skill and its nested entrypoint intact"
+    },
+    {
+      "name": "zhouwei713/seedance-prompt",
+      "repository": "https://github.com/zhouwei713/seedance-prompt",
+      "reviewed_commit": "f3336851c4eed8cdd6ce0f27df351611d4f751dd",
+      "reviewed_at": "2026-10-08",
+      "license": "MIT",
+      "adoption": "adapt the realistic-video-prompting layer for capture-source identity, device artifacts, non-perfect events, location-linked audio and consistency locks; retain its canonical runtime name and do not overwrite seedance-prompt"
     }
   ],
   "intent": {
@@ -54,7 +70,8 @@
     "secrets": "never include credentials in generated prompts or public artifacts"
   },
   "target_platforms": ["openai", "claude", "generic", "agent-skills-compatible", "vscode"],
-  "factory_components": ["references", "references/lyra-method.md", "scripts", "evals", "reports", "tests"],
+  "factory_components": ["references", "references/lyra-method.md", "references/video-prompt-routing.md", "references/web-prompt-routing.md", "scripts", "evals", "reports", "tests"],
+  "local_preference_overlays": ["$CODEX_HOME/HTML/海洋哥web偏好提示词.md"],
   "release_gates": [
     "intent_capture",
     "prompt_master_source_review",
@@ -63,6 +80,7 @@
     "root_entrypoint_isolation",
     "trigger_regression",
     "prompt_library_and_scene_route_regression",
+    "video_route_regression",
     "context_budget",
     "skill_ir",
     "portability_and_trust",

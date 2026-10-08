@@ -1,20 +1,20 @@
 {
   "ok": true,
   "status": "pass",
-  "reason": "root SKILL.md is 9446 bytes within production budget",
+  "reason": "root SKILL.md is 13995 bytes within production budget",
   "tier": "production",
-  "root_skill_bytes": 9446,
+  "root_skill_bytes": 13995,
   "root_budget_bytes": {
     "root_warn": 14000,
     "root_block": 20000
   },
   "resource_bytes": {
-    "references": 47249,
+    "references": 64642,
     "scripts": 58682,
-    "evals": 4279,
-    "reports": 37666
+    "evals": 5139,
+    "reports": 43437
   },
-  "total_measured_bytes": 157322,
+  "total_measured_bytes": 185895,
   "files": [
     {
       "path": "references/lyra-method.md",
@@ -49,6 +49,16 @@
     {
       "path": "references/templates.md",
       "bytes": 16989,
+      "on_demand": true
+    },
+    {
+      "path": "references/video-prompt-routing.md",
+      "bytes": 11495,
+      "on_demand": true
+    },
+    {
+      "path": "references/web-prompt-routing.md",
+      "bytes": 5898,
       "on_demand": true
     },
     {
@@ -88,17 +98,17 @@
     },
     {
       "path": "evals/trigger_cases.json",
-      "bytes": 4279,
+      "bytes": 5139,
       "on_demand": false
     },
     {
       "path": "reports/context-budget.json",
-      "bytes": 2870,
+      "bytes": 3101,
       "on_demand": true
     },
     {
       "path": "reports/creation-handoff.md",
-      "bytes": 4871,
+      "bytes": 6486,
       "on_demand": true
     },
     {
@@ -108,22 +118,22 @@
     },
     {
       "path": "reports/prior-art-research.md",
-      "bytes": 7032,
+      "bytes": 8688,
       "on_demand": true
     },
     {
       "path": "reports/release-local.json",
-      "bytes": 5869,
+      "bytes": 6166,
       "on_demand": true
     },
     {
       "path": "reports/skill-ir.json",
-      "bytes": 8119,
+      "bytes": 8655,
       "on_demand": true
     },
     {
       "path": "reports/trigger-eval.json",
-      "bytes": 8494,
+      "bytes": 9930,
       "on_demand": true
     }
   ],
