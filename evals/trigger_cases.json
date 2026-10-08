@@ -5,7 +5,8 @@
     "prompt": ["提示词", "prompt", "提示语", "提示词工程"],
     "authoring_action": ["生成", "工程化", "优化", "改写", "适配", "构建", "转换", "打磨", "整理"],
     "prompt_library": ["提示词库", "收藏库", "场景模板", "Prompt 库"],
-    "target_tool": ["Claude", "GPT", "ChatGPT", "Gemini", "Cursor", "Midjourney", "通用大模型", "目标工具"]
+    "target_tool": ["Claude", "GPT", "ChatGPT", "Gemini", "Cursor", "Midjourney", "通用大模型", "目标工具"],
+    "lyra_mode": ["Lyra", "详细", "基础", "超级顾问", "提示优化师"]
   },
   "description_required_concepts": ["skill", "prompt", "authoring_action"],
   "negative_patterns": ["总结", "翻译", "讲解", "解释", "修复代码", "提示词模板", "只要模板", "README", "一次性答案", "参数调优", "只看提示词库"],
@@ -39,6 +40,16 @@
       "text": "请把这个登录接口时不时超时的草稿优化成适合 Cursor 的排障场景正式 Prompt",
       "family": "scene-optimization",
       "min_concept_matches": 3
+    },
+    {
+      "text": "详细，使用 ChatGPT — 把下面的研究目标优化成可执行的提示词，并先问我关键问题",
+      "family": "lyra-detailed-mode",
+      "min_concept_matches": 3
+    },
+    {
+      "text": "基础，使用 Claude — 快速修正这段客服 Prompt，直接给我可复制版本",
+      "family": "lyra-basic-mode",
+      "min_concept_matches": 3
     }
   ],
   "should_not_trigger": [
@@ -55,6 +66,11 @@
     {
       "text": "请讲解什么是提示词工程",
       "family": "explanation",
+      "expected_trigger": false
+    },
+    {
+      "text": "请用详细模式回答这个普通知识问题",
+      "family": "mode-keyword-only",
       "expected_trigger": false
     },
     {

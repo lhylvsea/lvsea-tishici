@@ -26,29 +26,34 @@
       "evidence": {
         "ok": true,
         "status": "pass",
-        "reason": "root SKILL.md is 7290 bytes within production budget",
+        "reason": "root SKILL.md is 9395 bytes within production budget",
         "tier": "production",
-        "root_skill_bytes": 7290,
+        "root_skill_bytes": 9395,
         "root_budget_bytes": {
           "root_warn": 14000,
           "root_block": 20000
         },
         "resource_bytes": {
-          "references": 40078,
+          "references": 47249,
           "scripts": 58682,
-          "evals": 3639,
-          "reports": 34091
+          "evals": 4279,
+          "reports": 40031
         },
-        "total_measured_bytes": 143780,
+        "total_measured_bytes": 159636,
         "files": [
           {
+            "path": "references/lyra-method.md",
+            "bytes": 5766,
+            "on_demand": true
+          },
+          {
             "path": "references/model-routing.md",
-            "bytes": 4262,
+            "bytes": 5002,
             "on_demand": true
           },
           {
             "path": "references/output-contract.md",
-            "bytes": 3471,
+            "bytes": 4136,
             "on_demand": true
           },
           {
@@ -108,17 +113,17 @@
           },
           {
             "path": "evals/trigger_cases.json",
-            "bytes": 3639,
+            "bytes": 4279,
             "on_demand": false
           },
           {
             "path": "reports/context-budget.json",
-            "bytes": 2764,
+            "bytes": 2870,
             "on_demand": true
           },
           {
             "path": "reports/creation-handoff.md",
-            "bytes": 3654,
+            "bytes": 4871,
             "on_demand": true
           },
           {
@@ -128,22 +133,22 @@
           },
           {
             "path": "reports/prior-art-research.md",
-            "bytes": 6203,
+            "bytes": 7032,
             "on_demand": true
           },
           {
             "path": "reports/release-local.json",
-            "bytes": 6338,
+            "bytes": 8288,
             "on_demand": true
           },
           {
             "path": "reports/skill-ir.json",
-            "bytes": 7521,
+            "bytes": 8065,
             "on_demand": true
           },
           {
             "path": "reports/trigger-eval.json",
-            "bytes": 7200,
+            "bytes": 8494,
             "on_demand": true
           }
         ],
@@ -198,7 +203,7 @@
         "ok": true,
         "returncode": 0,
         "stdout": "",
-        "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.008s\n\nOK"
+        "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.024s\n\nOK"
       }
     },
     {

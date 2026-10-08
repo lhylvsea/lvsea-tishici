@@ -9,6 +9,11 @@
 | User-provided Chinese prompt-engineering template | direct task source | Chinese field coverage and prompt-only output lock |
 | https://github.com/Luban-Labs/pp | public MIT plugin | Manual prompt-library indexing, 1–3 candidate routing, source-of-truth prompt bodies and no-invention behavior; plugin execution and external prompt bodies excluded |
 | https://github.com/wangmian0/prompt-opt | public MIT plugin | Seven-scenario prompt optimization routing, field skeletons, assumption marking and prompt-plus-change-list delivery; passive hooks and installers excluded |
+| User-provided Lyra Chinese prompt-engineering template (2026-10-07 task) | direct task source | Four-step method, detailed/basic modes, platform guidance, response formats and required welcome message |
+| User-provided Chinese prompt-engineering template | direct task source | Chinese field coverage and prompt-only output lock |
+| User-provided Lyra Chinese prompt-engineering template (2026-10-07 task) | direct task source | Four-step method, detailed/basic modes, platform guidance, response formats and required welcome message |
+| https://github.com/Luban-Labs/pp | public MIT plugin | Manual prompt-library indexing, 1–3 candidate routing, source-of-truth prompt bodies and no-invention behavior; plugin execution and external prompt bodies excluded |
+| https://github.com/wangmian0/prompt-opt | public MIT plugin | Seven-scenario prompt optimization routing, field skeletons, assumption marking and prompt-plus-change-list delivery; passive hooks and installers excluded |
 
 ## Evidence policy
 

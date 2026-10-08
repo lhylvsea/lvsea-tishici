@@ -2,7 +2,7 @@
 
 > 把一段粗略目标、需求或已有 Prompt，生成可直接复制给目标 AI 的工程化提示词。
 
-`lvsea-tishici` 是中文优先的 Agent Skill。它吸收了 [nidhinjs/prompt-master](https://github.com/nidhinjs/prompt-master) 的目标工具路由、9 维意图抽取、失败模式诊断、上下文记忆块和代理停止条件，并结合 [Luban-Labs/pp](https://github.com/Luban-Labs/pp) 的手动 Prompt 库索引路由、[wangmian0/prompt-opt](https://github.com/wangmian0/prompt-opt) 的场景化 Prompt 优化，以及 `lvsea-zao-skill` 的可评测、可移植、可治理发布流程。
+`lvsea-tishici` 是中文优先的 Agent Skill。它吸收了 [nidhinjs/prompt-master](https://github.com/nidhinjs/prompt-master) 的目标工具路由、9 维意图抽取、失败模式诊断、上下文记忆块和代理停止条件，并结合 Lyra 的“解构—诊断—开发—交付”超级顾问流程、详细/基础模式、[Luban-Labs/pp](https://github.com/Luban-Labs/pp) 的手动 Prompt 库索引路由、[wangmian0/prompt-opt](https://github.com/wangmian0/prompt-opt) 的场景化 Prompt 优化，以及 `lvsea-zao-skill` 的可评测、可移植、可治理发布流程交付。
 
 ## 安装
 
@@ -20,8 +20,19 @@ npx skills add lhylvsea/lvsea-tishici --skill lvsea-tishici --global --copy -y
 - “$lvsea-tishici 优化这段已有 Prompt，保留原意，修复输出格式不稳定和事实臆造问题。”
 - “$lvsea-tishici 从提示词库里帮我挑 1–3 个适合做代码审查的场景，再输出可复制 Prompt，不要执行。”
 - “/lvsea-tishici 把这个排障草稿按场景模板打磨成正式任务书，只列出最多 3 行改动说明。”
+- “详细，使用 ChatGPT — 把下面的研究目标改成可执行的提示词，并先问我关键问题。”
+- “基础，使用 Claude — 快速优化这段客服回复 Prompt，直接给我可复制版本。”
 
-没有指定工具时，会优先生成平台中立的通用大模型 Prompt；只有工具语法或能力会明显改变结果时才追问关键缺口。
+没有指定工具时，会优先生成平台中立的通用大模型 Prompt；只有工具语法或能力会明显改变结果时才追问关键缺口。只激活 Skill 而不提供任务时，会显示 Lyra 的固定欢迎消息。
+
+## Lyra 工作方式
+
+1. **解构**：抽取任务、目标 AI、输入、上下文、输出、约束、受众、成功标准和示例。
+2. **诊断**：检查歧义、完整性、复杂度、平台能力和事实边界。
+3. **开发**：按创意、技术、教育或专业任务选择角色、模板、示例和限制。
+4. **交付**：输出可直接复制的 Prompt；详细模式可附有限的改进说明，基础模式快速交付。
+
+详细模式只会围绕会改变结果的缺口集中提出 2 至 3 个问题；基础模式使用安全默认值或占位符，不为小细节停顿。完整规则见 [`references/lyra-method.md`](references/lyra-method.md)。
 
 ## 输出特点
 
@@ -30,8 +41,9 @@ npx skills add lhylvsea/lvsea-tishici --skill lvsea-tishici --global --copy -y
 3. 将“专业”“高质量”“做得好”等模糊词改成可执行、可检查的要求。
 4. 对代码代理增加文件范围、禁止动作、停止条件和验收标准。
 5. 对事实、引用、图像、视频、推理原生模型和敏感凭据使用相应安全边界。
-6. 默认只交付一份带标题的可复制 Markdown Prompt，不附加无关解释。
+6. 默认只交付一份带标题的可复制 Markdown Prompt，不附加无关解释；详细模式按任务复杂度补充有限的变更说明、应用技术和使用建议。
 7. 对显式优化请求先判定排障、加功能、重构、调研、审查、数据报告或循环任务场景；对提示词库请求先做手动索引路由，再处理用户提供的正文。
+8. 对 ChatGPT、Claude、Gemini、推理原生模型和其他工具分别适配，不把“展示思维链”写入不兼容的目标 Prompt。
 
 ## 本地验证
 
@@ -80,6 +92,8 @@ python scripts/publish_skill.py . --github-user lhylvsea --repo-name lvsea-tishi
 | 问题 | 处理 |
 |---|---|
 | Skill 不触发 | 确认使用 `/lvsea-tishici` 或 `$lvsea-tishici`，并重启 Agent 客户端。 |
+| 想先澄清再优化 | 使用 `详细，使用[目标 AI] — [原始请求]`；只会询问会改变结果的 2 至 3 个问题。 |
+| 想快速拿结果 | 使用 `基础，使用[目标 AI] — [原始请求]`；缺失信息会用安全占位符或默认值处理。 |
 | 目标工具不明确 | 直接补充“目标工具：Claude / GPT / Cursor / Midjourney”等；通用任务会默认平台中立。 |
 | `No valid skills found` | 运行 `python scripts/validate_skill.py .`，检查根目录只有一个 `SKILL.md` 且 frontmatter 完整。 |
 | 触发过宽或过窄 | 修改 `SKILL.md` 的 description 和 `evals/trigger_cases.json`，重新运行 `trigger_eval.py`。 |
@@ -95,6 +109,7 @@ python scripts/publish_skill.py . --github-user lhylvsea --repo-name lvsea-tishi
 - [wangmian0/prompt-opt](https://github.com/wangmian0/prompt-opt)：场景判定、字段骨架、意图保真和显式优化后的停机边界；仅作语义适配。
 - [getsentry/skills prompt-optimizer](https://github.com/getsentry/skills/tree/main/skills/prompt-optimizer)：合约优先、评测集、上下文清单和残余风险记录的设计启发。
 - [joeseesun/qiaomu-meta-skill](https://github.com/joeseesun/qiaomu-meta-skill) 与 [yaojingang/yao-meta-skill](https://github.com/yaojingang/yao-meta-skill)：`lvsea-zao-skill` 的上游方法来源。
+- 维护者提供的 Lyra 中文提示词材料：四步方法、详细/基础模式、平台适配、响应格式和固定欢迎消息；已按本 Skill 的安全与平台边界适配，不是外部代码镜像。
 
 ## License
 

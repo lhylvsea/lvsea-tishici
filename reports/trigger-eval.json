@@ -3,6 +3,7 @@
   "threshold": 0.5,
   "description_concepts": [
     "authoring_action",
+    "lyra_mode",
     "prompt",
     "prompt_library",
     "skill",
@@ -10,20 +11,20 @@
   ],
   "missing_description_concepts": [],
   "summary": {
-    "total": 17,
-    "passed": 17,
+    "total": 20,
+    "passed": 20,
     "false_positive": 0,
     "false_negative": 0,
     "pass_rate": 1.0
   },
   "bucket_summary": {
     "should_trigger": {
-      "total": 6,
-      "passed": 6
+      "total": 8,
+      "passed": 8
     },
     "should_not_trigger": {
-      "total": 4,
-      "passed": 4
+      "total": 5,
+      "passed": 5
     },
     "near_neighbor": {
       "total": 4,
@@ -122,6 +123,35 @@
           "target_tool"
         ],
         "negative_pattern": null
+      },
+      {
+        "prompt": "详细，使用 ChatGPT — 把下面的研究目标优化成可执行的提示词，并先问我关键问题",
+        "family": "lyra-detailed-mode",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 1.0,
+        "matched_concepts": [
+          "authoring_action",
+          "lyra_mode",
+          "prompt",
+          "target_tool"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "基础，使用 Claude — 快速修正这段客服 Prompt，直接给我可复制版本",
+        "family": "lyra-basic-mode",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 1.0,
+        "matched_concepts": [
+          "lyra_mode",
+          "prompt",
+          "target_tool"
+        ],
+        "negative_pattern": null
       }
     ],
     "should_not_trigger": [
@@ -156,6 +186,18 @@
           "prompt"
         ],
         "negative_pattern": "讲解"
+      },
+      {
+        "prompt": "请用详细模式回答这个普通知识问题",
+        "family": "mode-keyword-only",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.333,
+        "matched_concepts": [
+          "lyra_mode"
+        ],
+        "negative_pattern": null
       },
       {
         "prompt": "直接修复这个 Python 代码错误",
