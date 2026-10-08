@@ -1,8 +1,8 @@
 {
   "ok": true,
   "phase": "local",
-  "root": "lvsea-tishici-pp-sync",
-  "version": "0.2.0",
+  "root": "lvsea-tishici-sync",
+  "version": "0.3.2",
   "repository": "lhylvsea/lvsea-tishici",
   "summary": {
     "pass": 7,
@@ -15,7 +15,7 @@
       "status": "pass",
       "evidence": {
         "ok": true,
-        "root": "lvsea-tishici-pp-sync",
+        "root": "lvsea-tishici-sync",
         "failures": [],
         "warnings": []
       }
@@ -26,20 +26,20 @@
       "evidence": {
         "ok": true,
         "status": "pass",
-        "reason": "root SKILL.md is 9446 bytes within production budget",
+        "reason": "root SKILL.md is 13771 bytes within production budget",
         "tier": "production",
-        "root_skill_bytes": 9446,
+        "root_skill_bytes": 13771,
         "root_budget_bytes": {
           "root_warn": 14000,
           "root_block": 20000
         },
         "resource_bytes": {
-          "references": 47249,
+          "references": 58744,
           "scripts": 58682,
-          "evals": 4279,
-          "reports": 37666
+          "evals": 4693,
+          "reports": 49430
         },
-        "total_measured_bytes": 157322,
+        "total_measured_bytes": 185320,
         "files": [
           {
             "path": "references/lyra-method.md",
@@ -74,6 +74,11 @@
           {
             "path": "references/templates.md",
             "bytes": 16989,
+            "on_demand": true
+          },
+          {
+            "path": "references/video-prompt-routing.md",
+            "bytes": 11495,
             "on_demand": true
           },
           {
@@ -113,17 +118,17 @@
           },
           {
             "path": "evals/trigger_cases.json",
-            "bytes": 4279,
+            "bytes": 4693,
             "on_demand": false
           },
           {
             "path": "reports/context-budget.json",
-            "bytes": 2870,
+            "bytes": 2989,
             "on_demand": true
           },
           {
             "path": "reports/creation-handoff.md",
-            "bytes": 4871,
+            "bytes": 6180,
             "on_demand": true
           },
           {
@@ -133,22 +138,22 @@
           },
           {
             "path": "reports/prior-art-research.md",
-            "bytes": 7032,
+            "bytes": 8688,
             "on_demand": true
           },
           {
             "path": "reports/release-local.json",
-            "bytes": 5869,
+            "bytes": 13543,
             "on_demand": true
           },
           {
             "path": "reports/skill-ir.json",
-            "bytes": 8119,
+            "bytes": 8570,
             "on_demand": true
           },
           {
             "path": "reports/trigger-eval.json",
-            "bytes": 8494,
+            "bytes": 9049,
             "on_demand": true
           }
         ],
@@ -162,7 +167,7 @@
         "ok": true,
         "failures": [],
         "manifest_name": "lvsea-tishici",
-        "manifest_version": "0.2.0"
+        "manifest_version": "0.3.2"
       }
     },
     {
@@ -179,14 +184,14 @@
         "ok": true,
         "returncode": 0,
         "stdout": "",
-        "stderr": ""
+        "stderr": "warning: in the working copy of 'references/prompt-library-routing.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'references/prompt-opt-routing.md', LF will be replaced by CRLF the next time Git touches it"
       }
     },
     {
       "gate": "feature_branch",
       "status": "pass",
       "evidence": {
-        "branch": "codex/prompt-master-sync"
+        "branch": "codex/lvsea-tishici-video-refine"
       }
     },
     {
@@ -203,7 +208,7 @@
         "ok": true,
         "returncode": 0,
         "stdout": "",
-        "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.028s\n\nOK"
+        "stderr": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.014s\n\nOK"
       }
     },
     {

@@ -7,20 +7,21 @@
     "prompt",
     "prompt_library",
     "skill",
-    "target_tool"
+    "target_tool",
+    "video_prompt"
   ],
   "missing_description_concepts": [],
   "summary": {
-    "total": 20,
-    "passed": 20,
+    "total": 21,
+    "passed": 21,
     "false_positive": 0,
     "false_negative": 0,
     "pass_rate": 1.0
   },
   "bucket_summary": {
     "should_trigger": {
-      "total": 8,
-      "passed": 8
+      "total": 9,
+      "passed": 9
     },
     "should_not_trigger": {
       "total": 5,
@@ -74,7 +75,7 @@
         "expected_trigger": true,
         "predicted_trigger": true,
         "passed": true,
-        "score": 1.0,
+        "score": 0.75,
         "matched_concepts": [
           "authoring_action",
           "prompt",
@@ -88,7 +89,7 @@
         "expected_trigger": true,
         "predicted_trigger": true,
         "passed": true,
-        "score": 1.0,
+        "score": 0.75,
         "matched_concepts": [
           "authoring_action",
           "prompt",
@@ -102,7 +103,7 @@
         "expected_trigger": true,
         "predicted_trigger": true,
         "passed": true,
-        "score": 1.0,
+        "score": 0.75,
         "matched_concepts": [
           "prompt",
           "prompt_library",
@@ -116,7 +117,7 @@
         "expected_trigger": true,
         "predicted_trigger": true,
         "passed": true,
-        "score": 1.0,
+        "score": 0.75,
         "matched_concepts": [
           "authoring_action",
           "prompt",
@@ -145,11 +146,26 @@
         "expected_trigger": true,
         "predicted_trigger": true,
         "passed": true,
-        "score": 1.0,
+        "score": 0.75,
         "matched_concepts": [
           "lyra_mode",
           "prompt",
           "target_tool"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "$lvsea-tishici 使用 Seedance 生成一段 15 秒海滩视频提示词，加入真实手机随拍感、镜头、现场声音和人物一致性",
+        "family": "video-seedance-realism-route",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 1.0,
+        "matched_concepts": [
+          "authoring_action",
+          "prompt",
+          "skill",
+          "video_prompt"
         ],
         "negative_pattern": null
       }
@@ -181,7 +197,7 @@
         "expected_trigger": false,
         "predicted_trigger": false,
         "passed": true,
-        "score": 0.333,
+        "score": 0.25,
         "matched_concepts": [
           "prompt"
         ],
@@ -193,7 +209,7 @@
         "expected_trigger": false,
         "predicted_trigger": false,
         "passed": true,
-        "score": 0.333,
+        "score": 0.25,
         "matched_concepts": [
           "lyra_mode"
         ],
@@ -217,7 +233,7 @@
         "expected_trigger": false,
         "predicted_trigger": false,
         "passed": true,
-        "score": 1.0,
+        "score": 0.75,
         "matched_concepts": [
           "authoring_action",
           "prompt",
@@ -231,7 +247,7 @@
         "expected_trigger": false,
         "predicted_trigger": false,
         "passed": true,
-        "score": 0.333,
+        "score": 0.25,
         "matched_concepts": [
           "skill"
         ],
@@ -253,7 +269,7 @@
         "expected_trigger": false,
         "predicted_trigger": false,
         "passed": true,
-        "score": 1.0,
+        "score": 0.75,
         "matched_concepts": [
           "authoring_action",
           "prompt",

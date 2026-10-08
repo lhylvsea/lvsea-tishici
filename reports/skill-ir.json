@@ -3,14 +3,14 @@
   "generated_at": "2026-10-08",
   "package": {
     "name": "lvsea-tishici",
-    "version": "0.2.0",
+    "version": "0.3.2",
     "owner": "海洋哥 / lhylvsea",
     "maturity_tier": "governed",
     "lifecycle_stage": "library",
     "upstream_inspiration": "https://github.com/nidhinjs/prompt-master; https://github.com/Luban-Labs/pp; https://github.com/wangmian0/prompt-opt; https://github.com/getsentry/skills/tree/main/skills/prompt-optimizer; https://github.com/joeseesun/qiaomu-meta-skill; https://github.com/yaojingang/yao-meta-skill"
   },
   "intent": {
-    "description": "中文提示词工程与提示词库路由 Skill。仅在用户显式调用 /lvsea-tishici 或 $lvsea-tishici，或明确要求把一段话、粗略目标、已有提示词、提示词库条目、收藏模板或场景草稿生成、优化、改写、迁移成可直接复制的工程化 AI 提示词时使用。内置 Lyra“解构—诊断—开发—交付”超级顾问流程，支持详细/基础两种优化模式、提示词库索引路由和七类场景化 Prompt 优化，以及通用大语言模型、Claude、ChatGPT/GPT、Gemini、推理模型、代码代理、图像/视频模型和工作流 AI；不用于直接执行提示词、普通问答、翻译、摘要、代码修复、切换 prompt-level 档位、扫描本机收藏目录或只改 README。",
+    "description": "中文提示词工程与提示词库路由 Skill。仅在用户显式调用 /lvsea-tishici 或 $lvsea-tishici，或明确要求把一段话、粗略目标、已有提示词、提示词库条目、收藏模板或场景草稿生成、优化、改写、迁移成可直接复制的工程化 AI 提示词时使用。内置 Lyra“解构—诊断—开发—交付”超级顾问流程，支持详细/基础两种优化模式、提示词库索引路由和七类场景化 Prompt 优化，以及通用大语言模型、Claude、ChatGPT/GPT、Gemini、推理模型、代码代理、图像/视频模型和工作流 AI；视频生成提示词会联合补充 Seedance 的 seedance-prompt 与真实感 realistic-video-prompting 规则，并默认执行动作、道具状态、设备缺陷、时间钉点、主体尺度和物理因果预算，稳定优先而非瑕疵堆叠；不用于直接执行提示词、普通问答、翻译、摘要、代码修复、切换 prompt-level 档位、扫描本机收藏目录或只改 README。",
     "job_to_be_done": "将一段粗略目标、需求或已有 Prompt 转化为可直接复制、平台适配、边界清晰、可验收的工程化 AI 提示词。",
     "target_users": [
       "中文 AI 工具使用者",
@@ -55,7 +55,8 @@
       "$lvsea-tishici 从提示词库挑 1–3 个适合代码审查的模板，输出可复制 Prompt，不要执行",
       "请把这个登录接口时不时超时的草稿优化成适合 Cursor 的排障场景正式 Prompt",
       "详细，使用 ChatGPT — 把下面的研究目标优化成可执行的提示词，并先问我关键问题",
-      "基础，使用 Claude — 快速修正这段客服 Prompt，直接给我可复制版本"
+      "基础，使用 Claude — 快速修正这段客服 Prompt，直接给我可复制版本",
+      "$lvsea-tishici 使用 Seedance 生成一段 15 秒海滩视频提示词，加入真实手机随拍感、镜头、现场声音和人物一致性"
     ],
     "should_not_trigger": [
       "帮我总结这份生产报告",
@@ -94,7 +95,8 @@
       "references/patterns.md",
       "references/prompt-library-routing.md",
       "references/prompt-opt-routing.md",
-      "references/templates.md"
+      "references/templates.md",
+      "references/video-prompt-routing.md"
     ],
     "scripts": [
       "scripts/context_sizer.py",

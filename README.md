@@ -2,7 +2,7 @@
 
 > 把一段粗略目标、需求或已有 Prompt，生成可直接复制给目标 AI 的工程化提示词。
 
-`lvsea-tishici` 是中文优先的 Agent Skill。它吸收了 [nidhinjs/prompt-master](https://github.com/nidhinjs/prompt-master) 的目标工具路由、9 维意图抽取、失败模式诊断、上下文记忆块和代理停止条件，并结合 Lyra 的“解构—诊断—开发—交付”超级顾问流程、详细/基础模式、[Luban-Labs/pp](https://github.com/Luban-Labs/pp) 的手动 Prompt 库索引路由、[wangmian0/prompt-opt](https://github.com/wangmian0/prompt-opt) 的场景化 Prompt 优化，以及 `lvsea-zao-skill` 的可评测、可移植、可治理发布流程交付。
+`lvsea-tishici` 是中文优先的 Agent Skill。它吸收了 [nidhinjs/prompt-master](https://github.com/nidhinjs/prompt-master) 的目标工具路由、9 维意图抽取、失败模式诊断、上下文记忆块和代理停止条件，并结合 Lyra 的“解构—诊断—开发—交付”超级顾问流程、详细/基础模式、[Luban-Labs/pp](https://github.com/Luban-Labs/pp) 的手动 Prompt 库索引路由、[wangmian0/prompt-opt](https://github.com/wangmian0/prompt-opt) 的场景化 Prompt 优化，以及 `lvsea-zao-skill` 的可评测、可移植、可治理发布流程交付。涉及视频生成时，它还通过联合路由补充 Seedance 2.0 的镜头结构与真实视频素材设计规则。
 
 ## 安装
 
@@ -22,6 +22,9 @@ npx skills add lhylvsea/lvsea-tishici --skill lvsea-tishici --global --copy -y
 - “/lvsea-tishici 把这个排障草稿按场景模板打磨成正式任务书，只列出最多 3 行改动说明。”
 - “详细，使用 ChatGPT — 把下面的研究目标改成可执行的提示词，并先问我关键问题。”
 - “基础，使用 Claude — 快速优化这段客服回复 Prompt，直接给我可复制版本。”
+- “$lvsea-tishici 使用 Seedance 生成 15 秒海滩视频提示词，加入镜头、现场声音和真实手机随拍感。”
+- “/lvsea-tishici 把人物参考图改成 Seedance I2V Prompt，只改变动作和光线，保持身份与服装一致。”
+- “$lvsea-tishici 为 Kling 生成纪录片感视频提示词，保留设备缺陷和非完美事件，不虚构平台参数。”
 
 没有指定工具时，会优先生成平台中立的通用大模型 Prompt；只有工具语法或能力会明显改变结果时才追问关键缺口。只激活 Skill 而不提供任务时，会显示 Lyra 的固定欢迎消息。
 
@@ -44,6 +47,7 @@ npx skills add lhylvsea/lvsea-tishici --skill lvsea-tishici --global --copy -y
 6. 默认只交付一份带标题的可复制 Markdown Prompt，不附加无关解释；详细模式按任务复杂度补充有限的变更说明、应用技术和使用建议。
 7. 对显式优化请求先判定排障、加功能、重构、调研、审查、数据报告或循环任务场景；对提示词库请求先做手动索引路由，再处理用户提供的正文。
 8. 对 ChatGPT、Claude、Gemini、推理原生模型和其他工具分别适配，不把“展示思维链”写入不兼容的目标 Prompt。
+9. 视频任务由 `references/video-prompt-routing.md` 统一协调：Seedance 专项规则与真实感素材规则分层加载，默认先执行道具状态、动作数量、主体尺度、镜头路径、设备缺陷、事件时间钉点和物理因果的稳定性预算，冲突时优先目标平台语法、用户原意和安全边界。
 
 ## 本地验证
 
@@ -86,6 +90,9 @@ python scripts/publish_skill.py . --github-user lhylvsea --repo-name lvsea-tishi
 - 不内置 `pp` 的 `/pp` 插件入口、`prompt-opt` 的 `prompt-level` 被动钩子、安装器、状态文件或第三方 Prompt 正文；本 Skill 继续只在显式触发后生成 Prompt，不直接执行。
 - 发布、PR、Release、`npx skills add` 和本地安装同步会改变外部状态，只在用户明确要求时执行。
 - 公开仓库不应包含 Token、Cookie、私有附件、原始私人对话、内部源材料或本机绝对路径。
+- `zhouwei713/seedance-prompt` 的 frontmatter 名称是 `realistic-video-prompting`，它作为真实感补充层使用，不覆盖 `Emily2040/seedance-2.0` 的 `seedance-prompt`。
+- 联合路由只生成 Prompt，不连接视频 Provider、不消耗额度，也不证明 WorkBuddy 或其他平台的实际生成效果；真实效果需要单独实跑和人工复核。
+- 视频真实感不是设备缺陷越多越好：未明确要求时，10–15 秒单镜头默认不加道具，确有主题价值时才保留一个简单道具；同时只保留一个主动作、最多两个轻微设备缺陷，并把主动设备事件绑定到具体时间阶段。输出前会删除超预算的并列事件、主体过小却要求脸部细节的冲突、矛盾光线和无因果物理变化。
 
 ## Troubleshooting
 
@@ -107,6 +114,8 @@ python scripts/publish_skill.py . --github-user lhylvsea --repo-name lvsea-tishi
 - [nidhinjs/prompt-master](https://github.com/nidhinjs/prompt-master)：目标工具路由、模板库、失败模式和安全提示词原则；其公开代码按 MIT 许可证保留必要声明。
 - [Luban-Labs/pp](https://github.com/Luban-Labs/pp)：手动 Prompt 库索引、候选路由、正文事实源和不代编空白模板的机制；仅作语义适配。
 - [wangmian0/prompt-opt](https://github.com/wangmian0/prompt-opt)：场景判定、字段骨架、意图保真和显式优化后的停机边界；仅作语义适配。
+- [Emily2040/seedance-2.0](https://github.com/Emily2040/seedance-2.0)：Seedance 2.0 的模式、镜头、参考素材角色、连续性和反 Slop 规则；仅作视频专项路由来源。
+- [zhouwei713/seedance-prompt](https://github.com/zhouwei713/seedance-prompt)：真实素材来源身份、设备缺陷、非完美事件、现场音频和一致性结构；运行时名称为 `realistic-video-prompting`。
 - [getsentry/skills prompt-optimizer](https://github.com/getsentry/skills/tree/main/skills/prompt-optimizer)：合约优先、评测集、上下文清单和残余风险记录的设计启发。
 - [joeseesun/qiaomu-meta-skill](https://github.com/joeseesun/qiaomu-meta-skill) 与 [yaojingang/yao-meta-skill](https://github.com/yaojingang/yao-meta-skill)：`lvsea-zao-skill` 的上游方法来源。
 - 维护者提供的 Lyra 中文提示词材料：四步方法、详细/基础模式、平台适配、响应格式和固定欢迎消息；已按本 Skill 的安全与平台边界适配，不是外部代码镜像。

@@ -88,3 +88,22 @@ The two sources complement rather than replace the existing package: `pp` contri
 - Adapt: “chain of thought” becomes internal reasoning checks; existing prompt-only output remains the default when no Lyra mode is selected; clarification questions are bounded to 2–3 only when material.
 - Reject: exposing hidden reasoning, treating framework names as quality evidence, inventing missing platform facts or overriding existing permission and source boundaries.
 - Destination: `references/lyra-method.md`, root routing, interface metadata, README and trigger fixtures.
+
+## 7. Seedance video prompt sources
+
+### Source boundary
+
+- `https://github.com/Emily2040/seedance-2.0`, reviewed at `4668457e560eee06e95d7fcfdf441c8c0bba802e` on 2026-10-08; MIT.
+- `https://github.com/zhouwei713/seedance-prompt`, reviewed at `f3336851c4eed8cdd6ce0f27df351611d4f751dd` on 2026-10-08; MIT.
+- Read the linked `SKILL.md` files and public README material. The first is a Seedance 2.0 specialist; the second declares the runtime name `realistic-video-prompting` and is a cross-model realistic-video specialist.
+
+### Synthesis ledger
+
+- `keep`: Seedance mode and reference-role routing, Director's Read, one-main-action/one-main-camera discipline, shot-order semantics, capture-source identity, device artifacts, non-perfect events, location-linked audio and consistency locks.
+- `adapt`: add `references/video-prompt-routing.md` as a local orchestrator route; retain `lvsea-tishici` as the only output owner and load both sources for video-generation Prompt requests.
+- `reject`: concatenate two root `SKILL.md` files, create a second same-name entrypoint, copy provider-specific claims without verification, or execute a generated video request.
+- `resolve`: Seedance 2.0 controls mode, reference binding, shot order and continuous-versus-storyboard grammar; realistic-video guidance supplements capture identity, physical device behavior, ambient audio and anti-AI details.
+
+### Evidence limits
+
+This is a static source integration and local routing change. It does not prove a WorkBuddy or Provider call, account entitlement, credit availability or generated-video quality. Those remain separate runtime evidence layers.

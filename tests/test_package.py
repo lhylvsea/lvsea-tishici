@@ -82,11 +82,54 @@ class PackageContractTests(unittest.TestCase):
             "references/prompt-library-routing.md",
             "references/prompt-opt-routing.md",
             "references/lyra-method.md",
+            "references/video-prompt-routing.md",
             "evals/trigger_cases.json",
             "reports/prior-art-research.md",
             "reports/creation-handoff.md",
         ):
             self.assertTrue((ROOT / relative).is_file(), relative)
+
+    def test_video_prompt_route_preserves_layered_sources(self):
+        skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+        usage = (ROOT / "USAGE.zh-CN.md").read_text(encoding="utf-8")
+        route = (ROOT / "references/video-prompt-routing.md").read_text(encoding="utf-8")
+        self.assertIn("video-prompt-routing.md", skill)
+        self.assertIn("seedance-prompt", route)
+        self.assertIn("realistic-video-prompting", route)
+        self.assertIn("Seedance 2.0 的平台镜头语法优先", route)
+        self.assertIn("zhouwei713/seedance-prompt", usage)
+        self.assertIn("不代表已连接", usage)
+
+        manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
+        sources = {item["name"]: item for item in manifest["additional_sources"]}
+        self.assertRegex(sources["Emily2040/seedance-2.0"]["reviewed_commit"], r"^[0-9a-f]{40}$")
+        self.assertRegex(sources["zhouwei713/seedance-prompt"]["reviewed_commit"], r"^[0-9a-f]{40}$")
+
+    def test_video_route_has_stability_budgets(self):
+        skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+        route = (ROOT / "references/video-prompt-routing.md").read_text(encoding="utf-8")
+        interface = (ROOT / "agents/interface.yaml").read_text(encoding="utf-8")
+        for phrase in (
+            "视频任务的减法门",
+            "状态预算",
+            "动作预算",
+            "缺陷预算",
+            "事件钉点",
+            "未成年人主体与陪同者画面关系",
+            "物理与时间门",
+        ):
+            self.assertIn(phrase, skill)
+        for phrase in (
+            "视频稳定性预算",
+            "复制或瞬移",
+            "主动作",
+            "最多使用其中一个",
+            "事件钉点预算",
+            "画外陪同、不入镜",
+            "WorkBuddy 或未知平台",
+        ):
+            self.assertIn(phrase, route)
+        self.assertIn("stability-first budgets", interface)
 
     def test_lyra_method_contract(self):
         text = (ROOT / "references/lyra-method.md").read_text(encoding="utf-8")
