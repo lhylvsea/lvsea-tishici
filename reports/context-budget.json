@@ -1,9 +1,9 @@
 {
   "ok": true,
   "status": "pass",
-  "reason": "root SKILL.md is 9395 bytes within production budget",
+  "reason": "root SKILL.md is 9446 bytes within production budget",
   "tier": "production",
-  "root_skill_bytes": 9395,
+  "root_skill_bytes": 9446,
   "root_budget_bytes": {
     "root_warn": 14000,
     "root_block": 20000
@@ -12,9 +12,9 @@
     "references": 47249,
     "scripts": 58682,
     "evals": 4279,
-    "reports": 39938
+    "reports": 37666
   },
-  "total_measured_bytes": 159543,
+  "total_measured_bytes": 157322,
   "files": [
     {
       "path": "references/lyra-method.md",
@@ -93,7 +93,7 @@
     },
     {
       "path": "reports/context-budget.json",
-      "bytes": 3807,
+      "bytes": 2870,
       "on_demand": true
     },
     {
@@ -113,12 +113,12 @@
     },
     {
       "path": "reports/release-local.json",
-      "bytes": 7258,
+      "bytes": 5869,
       "on_demand": true
     },
     {
       "path": "reports/skill-ir.json",
-      "bytes": 8065,
+      "bytes": 8119,
       "on_demand": true
     },
     {

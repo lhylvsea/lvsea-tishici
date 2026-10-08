@@ -1,7 +1,6 @@
 ---
 name: lvsea-tishici
-description: |
-  在用户显式调用 /lvsea-tishici 或 $lvsea-tishici，或明确要求把一段话、粗略目标、已有提示词、提示词库条目、收藏模板或场景草稿生成、优化、改写、迁移成可直接复制的工程化 AI 提示词时使用。内置 Lyra“解构—诊断—开发—交付”超级顾问流程，支持详细/基础两种优化模式、提示词库索引路由和七类场景化 Prompt 优化，以及通用大语言模型、Claude、ChatGPT/GPT、Gemini、推理模型、代码代理、图像/视频模型和工作流 AI；不用于直接执行提示词、普通问答、翻译、摘要、代码修复、切换 prompt-level 档位、扫描本机收藏目录或只改 README。
+description: "中文提示词工程与提示词库路由 Skill。仅在用户显式调用 /lvsea-tishici 或 $lvsea-tishici，或明确要求把一段话、粗略目标、已有提示词、提示词库条目、收藏模板或场景草稿生成、优化、改写、迁移成可直接复制的工程化 AI 提示词时使用。内置 Lyra“解构—诊断—开发—交付”超级顾问流程，支持详细/基础两种优化模式、提示词库索引路由和七类场景化 Prompt 优化，以及通用大语言模型、Claude、ChatGPT/GPT、Gemini、推理模型、代码代理、图像/视频模型和工作流 AI；不用于直接执行提示词、普通问答、翻译、摘要、代码修复、切换 prompt-level 档位、扫描本机收藏目录或只改 README。"
 ---
 
 # lvsea-tishici
